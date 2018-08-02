@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_date: 2018-08-02 14:15:44
+  finish_date: 2018-08-02 14:15:44
+  trainee: one
+  subject: one
+  status: 1
+
+two:
+  start_date: 2018-08-02 14:15:44
+  finish_date: 2018-08-02 14:15:44
+  trainee: two
+  subject: two
+  status: 1
