@@ -28,3 +28,18 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml
+
+#Test
+test/*
+.idea/*
+config/database.yml
+config/secrets.yml
+config/application.yml
+
+config/settings.local.yml
+config/settings/*.local.yml
+config/enviroments/*.local.yml
