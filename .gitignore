@@ -43,3 +43,6 @@ config/application.yml
 config/settings.local.yml
 config/settings/*.local.yml
 config/enviroments/*.local.yml
+
+# Ignore application configuration
+/config/application.yml
