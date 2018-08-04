@@ -8,6 +8,7 @@ gem "config"
 gem 'rails', '~> 5.2.0'
 gem 'mysql2'
 gem "figaro"
+gem 'devise'
 gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'

@@ -11,8 +11,8 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require modernizr-2.6.2.min
 //= require jquery.min
+//= require modernizr-2.6.2.min
 //= require bootstrap.min
 //= require jquery.waypoints.min
 //= require jquery.flexslider-min

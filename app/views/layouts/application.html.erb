@@ -24,10 +24,17 @@
   </head>
 
   <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <div id="colorlib-page">
       <div class="container-wrap">
-      <%= yield %>
+        <div>
+          <% if trainee_signed_in? %>
+            <li><%= link_to "logout", destroy_trainee_session_path, method: :delete %></li>
+          <% end %>
+        </div>
+        <%= yield %>
       </div>
-    </div>  
+    </div>
   </body>
 </html>
