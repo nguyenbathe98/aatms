@@ -1,9 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  instruction: MyText
-  name: MyString
-
-two:
-  instruction: MyText
-  name: MyString
