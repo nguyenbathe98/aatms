@@ -11,6 +11,14 @@
 // about supported directives.
 //
 //= require rails-ujs
+//= require modernizr-2.6.2.min
+//= require jquery.min
+//= require bootstrap.min
+//= require jquery.waypoints.min
+//= require jquery.flexslider-min
+//= require owl.carousel.min
+//= require jquery.countTo
+//= require main
 //= require activestorage
 //= require turbolinks
 //= require_tree .
