@@ -8,4 +8,4 @@ default: &default
 
 development:
   <<: *default
-  database: 
+  database: aatms_development

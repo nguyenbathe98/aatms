@@ -1,3 +1,1 @@
 #{Rails.root}/config/databases.yml
-database:
-  sqlpassword: "duykhanh94"
