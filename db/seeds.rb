@@ -8,3 +8,6 @@
 Trainee.create! name: "Huy",
   email: "huy@gmail.com",
   password: "123456"
+Trainer.create! name: "Trainer",
+  email: "huy1@gmail.com",
+  password: "123456"
