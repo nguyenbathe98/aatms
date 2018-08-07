@@ -7,7 +7,7 @@
 
 /* =======================================================
 *
-* 	Template Style 
+* 	Template Style
 *	Edit this section
 *
 * ======================================================= */
@@ -234,7 +234,6 @@ figure {
   min-height: 500px;
   background: #fff url(../images/loader.gif) no-repeat center center;
   width: 100%;
-  float: left;
   margin-bottom: 10em;
   clear: both; }
   #colorlib-hero .flexslider {
@@ -284,7 +283,6 @@ figure {
       #colorlib-hero .flexslider .slider-text > .slider-text-inner {
         display: table-cell;
         vertical-align: middle;
-        min-height: 700px;
         padding: 2.5em;
         position: relative; }
         @media screen and (max-width: 768px) {
@@ -307,7 +305,7 @@ figure {
           font-size: 18px;
           line-height: 1.5;
           margin-bottom: 30px;
-          font-weight: 300;
+          font-weight: 400;
           font-family: "Quicksand", Arial, sans-serif; }
           #colorlib-hero .flexslider .slider-text > .slider-text-inner h2 a {
             color: rgba(44, 152, 240, 0.8);
@@ -380,7 +378,7 @@ body.offcanvas {
 .colorlib-about,
 .colorlib-services,
 .colorlib-contact {
-  padding-top: 4em;
+  padding-top: 1em;
   padding-bottom: 9em;
   clear: both;
   width: 100%;
@@ -405,7 +403,7 @@ body.offcanvas {
 
 .colorlib-heading {
   font-size: 18px;
-  margin-bottom: 4em;
+  margin-bottom: 5px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 5px;
@@ -1427,3 +1425,74 @@ body.offcanvas {
 
 .js .animate-box {
   opacity: 0; }
+
+
+#buttons {
+  padding-top: 0px;
+  padding-left: 30px;
+}
+
+/* start da css for da buttons */
+.btn {
+  border-radius: 5px;
+  padding: 15px 25px;
+  font-size: 22px;
+  text-decoration: none;
+  margin: 20px;
+  color: #fff;
+  position: relative;
+  display: inline-block;
+}
+
+.btn:active {
+  transform: translate(0px, 5px);
+  -webkit-transform: translate(0px, 5px);
+  box-shadow: 0px 1px 0px 0px;
+}
+
+.blue {
+  background-color: #55acee;
+  box-shadow: 0px 5px 0px 0px #3C93D5;
+}
+
+.blue:hover {
+  background-color: #6FC6FF;
+}
+.modal {
+    font-family: Arial, Helvetica, sans-serif;
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 320px;
+    top: 0;
+     /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 100%;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
