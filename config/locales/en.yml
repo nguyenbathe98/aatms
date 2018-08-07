@@ -32,4 +32,4 @@
 en:
   subjects:
     show:
-      list_default_task: "List Task "
+      list_task: "List Task "
