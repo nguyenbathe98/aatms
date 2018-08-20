@@ -1,0 +1,22 @@
+<h1><%= t ".timetable" %></h1>
+<table>
+  <tr>
+    <th><%= t ".stt"%></th>
+    <th><%= t ".date"%></th>
+    <th><%= t ".shift"%></th>
+    <th><%= t ".subject"%></th>
+    <th><%= t ".title"%></th>
+    <th><%= t ".trainer_name"%></th>
+  </tr>
+  <% @current_course.course.schedules.each_with_index do |schedule, index| %>
+    <tr>
+      <td><%= index%></td>
+      <td><%= schedule.date.strftime("%d/%m/%Y") %></td>
+      <td><%= schedule.shift %></td>
+      <td><%= link_to schedule.subject.name, course_subject_path(@current_course.course , schedule.subject) %>
+      </td>
+      <td><%= schedule.title %></td>
+      <td><%= schedule.trainer_name %></td>
+    </tr>
+  <% end %>
+</table>

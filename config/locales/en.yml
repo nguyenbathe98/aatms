@@ -33,3 +33,12 @@ en:
   subjects:
     show:
       list_task: "List Task "
+  schedules:
+    index:
+      timetable: "Timetable"
+      stt: "STT"
+      date: "Date"
+      shift: "Shift"
+      subject: "Subject"
+      title: "Title"
+      trainer_name: "Trainer"
