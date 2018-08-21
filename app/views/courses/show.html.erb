@@ -1,0 +1,78 @@
+<%# modal cua list trainee %>
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_trainee">
+  List Trainees
+</button>
+<div class="modal fade" id="myModal_trainee" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h1 class="modal-title" id="myModalLabel"><%= @course.name %></h1>
+      </div>
+      <div class="modal-body">
+        
+          <table>
+            <tr>
+              <th><%= t ".stt"%></th>
+              <th><%= t ".name"%></th>
+              <th><%= t ".email"%></th>
+              <th><%= t ".address"%></th>
+              <th><%= t ".phone"%></th>
+            </tr>
+            <% @course.trainees.each_with_index do |trainee, index| %>
+              <tr>
+                <td><%= index%></td>
+                <td><%= trainee.name %></td>
+                <td><%= trainee.email %></td>
+                <td><%= trainee.address %></td>
+                <td><%= trainee.phone %></td>
+              </tr>
+            <% end %>
+          </table>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<%#================== %>
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_trainer">
+  List Trainers
+</button>
+<div class="modal fade" id="myModal_trainer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h1 class="modal-title" id="myModalLabel"><%= @course.name %></h1>
+      </div>
+      <div class="modal-body">
+        
+          <table>
+            <tr>
+              <th><%= t ".stt"%></th>
+              <th><%= t ".name"%></th>
+              <th><%= t ".email"%></th>
+              <th><%= t ".description"%></th>
+              <th><%= t ".phone"%></th>
+            </tr>
+            <% @course.trainers.each_with_index do |trainer, index| %>
+              <tr>
+                <td><%= index%></td>
+                <td><%= trainer.name %></td>
+                <td><%= trainer.email %></td>
+                <td><%= trainer.description %></td>
+                <td><%= trainer.phone %></td>
+              </tr>
+            <% end %>
+          </table>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
