@@ -30,4 +30,6 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  subjects:
+    show:
+      list_default_task: "List Task "

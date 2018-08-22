@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 2018_08_21_041352) do
     t.bigint "subject_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "instruction"
     t.index ["subject_id"], name: "index_tasks_on_subject_id"
   end
 
@@ -104,13 +105,15 @@ ActiveRecord::Schema.define(version: 2018_08_21_041352) do
   end
 
   create_table "trainee_tasks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "status"
+    t.integer "status", default: 0, null: false
     t.bigint "trainee_id"
     t.bigint "course_subject_task_id"
     t.bigint "trainee_subject_id"
+    t.bigint "task_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["course_subject_task_id"], name: "index_trainee_tasks_on_course_subject_task_id"
+    t.index ["task_id"], name: "index_trainee_tasks_on_task_id"
     t.index ["trainee_id"], name: "index_trainee_tasks_on_trainee_id"
     t.index ["trainee_subject_id"], name: "index_trainee_tasks_on_trainee_subject_id"
   end
@@ -162,6 +165,7 @@ ActiveRecord::Schema.define(version: 2018_08_21_041352) do
   add_foreign_key "trainee_subjects", "subjects"
   add_foreign_key "trainee_subjects", "trainees"
   add_foreign_key "trainee_tasks", "course_subject_tasks"
+  add_foreign_key "trainee_tasks", "tasks"
   add_foreign_key "trainee_tasks", "trainee_subjects"
   add_foreign_key "trainee_tasks", "trainees"
 end

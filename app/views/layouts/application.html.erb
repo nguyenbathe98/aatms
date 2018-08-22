@@ -28,15 +28,18 @@
     <p class="alert"><%= alert %></p>
     <div id="colorlib-page">
       <div class="container-wrap">
+
         <div>
           <% if trainee_signed_in? %>
             <li><%= link_to "logout", destroy_trainee_session_path, method: :delete %></li>
+            <%= render "layouts/left_bar" %>
           <% end %>
           <% if trainer_signed_in? %>
             <li><%= link_to "logout", destroy_trainer_session_path, method: :delete %></li>
           <% end %>
+          <div id="colorlib-main">
+          <%= yield %>
         </div>
-        <%= yield %>
       </div>
     </div>
   </body>

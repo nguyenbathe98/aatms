@@ -5,10 +5,4 @@ class StaticPagesController < ApplicationController
   def index
   end
 
-  private
-  def signed_in?
-    if !trainee_signed_in?
-      redirect_to new_trainee_session_path
-    end
-end
 end
