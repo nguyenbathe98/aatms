@@ -11,7 +11,7 @@ RailsAdmin.config do |config|
   ## == Cancan ==
   config.authorize_with :cancancan
 
-  ## == Pundit ==
+  ## == Pundit ==can
   # config.authorize_with :pundit
 
   ## == PaperTrail ==

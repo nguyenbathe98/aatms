@@ -2,11 +2,11 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root 'static_pages#home'
-  devise_for :trainees, :skip => [:registrations]  
+  devise_for :trainees, :skip => [:registrations]
   devise_for :trainers, :skip => [:registrations]
   namespace :trainee do
   	resources :courses do
-  		resources :subjects, only:[:index, :show]
+  		resources :subjects, only:[:index, :show, :update]
   	end
   end
   namespace :trainer do
