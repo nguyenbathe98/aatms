@@ -1,0 +1,73 @@
+<%= link_to "Edit Course", edit_trainer_course_path(@course), class:"btn-info" %>
+<div class="super_container">
+  <div class="course">
+    <div class="container">
+      <div class="row">
+        <div class="course_title"><%= @course.name %></div>
+
+        <div class="course_image"><%= image_tag @course.image_url.to_s %></div>
+        <div class="course_info"><%= raw @course.description%></div>
+        <div class="course_tabs_container">
+          <div class="tabs d-flex flex-row align-items-center justify-content-start">
+            <div class="tab active">Subjects</div>
+          </div>
+          <div class="tab_panels">
+            <div class="tab_panel active">
+              <div class="tab_panel_title"></div>
+              <div class="tab_panel_content">
+                <div class="tab_panel_text">
+                <%= render "subjects" %>
+                </div>
+              </div>
+              <hr>
+              <a href="#" data-target="#ModalCLogin" data-toggle="modal"><span class="glyphicon glyphicon-log-in"></span>&nbsp;Login</a></li>
+              <div id="ModalCLogin" class="modal fade text-center">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                    
+                    </div>
+                  </div>
+              </div>    
+              <button id="myBtn"><div class="course_info">
+                    <i class="fa fa-graduation-cap" aria-hidden="true" , href="index.html"></i>
+                    <span><%= @course.trainers.count + @course.trainees.count %> Members</span>
+                  </div></button>
+              <div id="myModal" class="modal">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <span class="close">&times;</span>
+                  </div>
+                  <div class="modal-body">
+                <%= render partial: "trainer/assign_trainers/assign" %>
+                <hr>
+                <%= render partial: "trainer/assign_trainees/assign" %>
+                  </div>
+                  <div class="modal-footer">
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+var modal = document.getElementById('myModal');
+var btn = document.getElementById("myBtn");
+var span = document.getElementsByClassName("close")[0];
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+span.onclick = function() {
+    modal.style.display = "none";
+}
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>

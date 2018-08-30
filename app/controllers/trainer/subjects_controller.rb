@@ -1,5 +1,4 @@
 class Trainer::SubjectsController < ApplicationController
-  before_action :signed_in?
   def show
     trainer_course = CourseTrainer.find_by course_id: params[:course_id], trainer_id: current_trainer.id
     redirect_to root_url and return unless trainer_course

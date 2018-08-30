@@ -2,8 +2,10 @@ class StaticPagesController < ApplicationController
   before_action :signed_in?
 
   def home
-  	current_course = CourseTrainee.find_by trainee_id: current_trainee.id
-    redirect_to trainee_course_path(current_course) if current_course.pending?
+  	if current_trainee
+	  	current_course = CourseTrainee.find_by trainee_id: current_trainee.id
+	  	redirect_to trainee_course_path(current_course) if current_course.pending?
+  	end
   end
 
   private
