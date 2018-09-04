@@ -1,0 +1,64 @@
+<div id="colorlib-hero" class="js-fullheight" data-section="home">
+    <div class="flexslider js-fullheight">
+      <ul class="slides">
+        <li>
+          <div class="overlay"></div>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="js-fullheight slider-text">
+                <div class="slider-text-inner js-fullheight">
+                  <div class="desc">
+
+                    <h1><%= @current_subject.subject.name %></h1>
+                    <h2><%= raw @current_subject.subject.instruction %> </h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="colorlib-about" data-section="about">
+    <div class="colorlib-narrow-content">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft">
+            <div class="col-md-12">
+              <div class="about-desc">
+                <h2 class="colorlib-heading"><%= t ".list_task" %><%=@current_subject.subject.name%></h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% @tasks_of_subject.each do |task| %>
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal-<%= task.id%>">
+          <%= task.task.name %>
+        </button>
+        <div class="modal fade" id="myModal-<%= task.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h1 class="modal-title" id="myModalLabel"><%= task.course_subject_task.task.name %></h1>
+              </div>
+              <div class="modal-body">
+                <h3><%= task.course_subject_task.task.instruction %></h3>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% @finish_tasks.each do |finish| %>
+          <% if finish.id == task.id %>
+            <i class="fa fa-check-circle" style="font-size:25px;color:green"></i>
+          <% end %>
+        <% end %>
+    <% end %>
+  </div>
+  <script src="/assets/main.js"></script>

@@ -21,4 +21,6 @@
 //= require main
 //= require activestorage
 //= require turbolinks
+//= require ckeditor/init
+//= require cocoon
 //= require_tree .

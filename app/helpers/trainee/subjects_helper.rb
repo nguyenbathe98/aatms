@@ -1,0 +1,2 @@
+module Trainee::SubjectsHelper
+end

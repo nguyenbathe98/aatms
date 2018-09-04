@@ -1,0 +1,20 @@
+<%= form_for [:supervisor,@subject] do |f| %>
+<div class="field">
+<%= f.label :name %></br>
+<%= f.text_area :name  %>
+</div>
+<div class="field">
+<%= f.label :instruction %></br>
+<%= f.text_area :instruction, class: "ckeditor" %>
+</div>
+<h3> Tasks </h3>
+  <div id="answers">
+      <%= f.fields_for :tasks do |task| %>
+        <%= render 'task_fields', f: task %>
+      <% end %>
+      <div class="links" >
+        <%= link_to_add_association 'add task', f, :tasks ,class: "btn-primary"%>
+      </div>
+  </div>
+<%= f.submit "Edit" , class: "btn btn-primary"%>
+<% end %> 

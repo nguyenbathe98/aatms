@@ -12,8 +12,8 @@ class ApplicationController < ActionController::Base
      # current_trainee.ability
     #end
   def signed_in?
-    if !trainee_signed_in?
+    if !trainee_signed_in? && !trainer_signed_in?
       redirect_to new_trainee_session_path
-   end
+    end
   end
 end

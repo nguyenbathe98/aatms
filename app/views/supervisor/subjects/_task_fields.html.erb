@@ -1,0 +1,11 @@
+<div class="nested-fields" >
+  <div class="field">
+    <%= f.label :name %></br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :instruction %></br>
+    <%= f.text_area :instruction %>
+   </div>
+  <%= link_to_remove_association "remove task", f ,class: "btn-danger" %>
+ </div>
