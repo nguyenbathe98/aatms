@@ -28,7 +28,7 @@
         <div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft">
           <div class="col-md-12">
             <div class="about-desc">
-              <h2 class="colorlib-heading"><%= t ".list_task" %><%=@subject.name%></h2>
+              <h2 class="colorlib-heading"><%= t(".list_task") %><%=@subject.name%></h2>
             </div>
           </div>
         </div>
@@ -48,6 +48,12 @@
             </div>
             <div class="modal-body">
               <h3><%= task.instruction %></h3>
+              Status:
+              <%# if trainee_task.status == "finish" %>
+                <%#= link_to trainee_task.status, course_subject_change_status_task_path(trainee_task.course_subject_task.course_subject.course_id, trainee_task.course_subject_task.task.subject_id, trainee_task.id), class: "btn btn-primary" %>
+              <%# else %>
+                <%#= link_to trainee_task.status, course_subject_change_status_task_path(trainee_task.course_subject_task.course_subject.course_id, trainee_task.course_subject_task.task.subject_id, trainee_task.id), class: "btn btn-danger" %>
+              <%# end %>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
