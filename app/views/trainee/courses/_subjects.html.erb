@@ -1,5 +1,13 @@
 <% @course_subjects.each do |course_subject| %>
   <h2><%= course_subject.subject.name%></h2>
-  <p><%= course_subject.subject.instruction %></p>
+  <div class="lesstext">
+    <p><%= truncate strip_tags(course_subject.subject.instruction), length: 90 %></p>
+  </div>
+  <div class="moretext">
+    <span>
+      <p><%= strip_tags(course_subject.subject.instruction) %></p>
+    </span>
+    <%= link_to "More", "#", class: "links" %>
+  </div>
   <hr>
 <% end %>
