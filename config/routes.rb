@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   devise_for :trainees, :skip => [:registrations]
   devise_for :trainers, :skip => [:registrations]
   namespace :trainee do
-  	resources :courses do
+  	resources :courses, only:[:index, :show] do
   		resources :subjects, only:[:index, :show, :update]
   	end
   end
