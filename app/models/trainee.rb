@@ -10,4 +10,5 @@ class Trainee < ApplicationRecord
   has_many :tasks,    through: :trainee_tasks
   has_many :subjects, through: :trainee_subjects
   has_many :course_subject_tasks, through: :trainee_tasks
+  scope :trainee_data, -> (course){where.not(id: CourseTrainee.select(:trainee_id).where(course: course))}
 end

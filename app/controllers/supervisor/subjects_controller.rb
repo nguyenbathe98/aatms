@@ -1,5 +1,4 @@
 class Supervisor::SubjectsController < ApplicationController
-  before_action :signed_in?
   before_action :find_subject
 
   def create

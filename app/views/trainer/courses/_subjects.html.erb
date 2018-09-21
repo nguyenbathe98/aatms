@@ -1,0 +1,7 @@
+<% @course.course_subjects.each do |course_subject| %>
+	<div id="subject-<%=course_subject.id%>">
+  <h1><%= link_to course_subject.subject.name, trainer_course_subject_path(@course,course_subject.subject)%></h1>
+  <p><%= raw course_subject.subject.instruction %></p>
+	</div>
+  <hr>
+<% end %>

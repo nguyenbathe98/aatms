@@ -1,0 +1,35 @@
+<%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.js", 'data-turbolinks-track' => true %>
+
+<h3><%= @course.trainers.count %> Trainers</h3>
+<table>
+  <tr>
+    <th><%= t ".stt"%></th>
+    <th><%= t ".name"%></th>
+    <th><%= t ".phone"%></th>
+    <th><%= t ".description"%></th>
+    <th><%= t ".email"%></th>
+    <th><%= t ".status"%></th>
+  </tr>
+  <% @course.course_trainers.each_with_index do |trainer_of_course, index| %>
+  <tr>
+    <td><%= index %></td>
+    <td><%= trainer_of_course.trainer.name %></td>
+    <td><%= trainer_of_course.trainer.phone %></td>
+    <td><%= trainer_of_course.trainer.description %></td>
+    <td><%= trainer_of_course.trainer.email %>
+    <td><%= form_for (trainer_of_course), url: trainer_course_assign_trainer_path(@course), method: :delete do |f| %>
+        <%= f.hidden_field :id %>
+        <%= f.button "[X]", type:"submit", class:"btn-danger" %>
+    <% end %></td>
+  </tr>
+  <%end%>
+</table>
+<%= form_for [:trainer,@course] , url: trainer_course_assign_trainer_path(@course)do |f|%>
+  <%#= fields_for(@course.trainers) do |ab| %>
+    <div class="field">
+        <%= f.label "Add Trainers" %><br/>
+          <%= collection_select(:trainers, :id, @find_trainers , :id, :name, {}, {:multiple => true, class: "ui fluid  selection dropdown"}) %>
+    </div>
+  <%# end %>
+<%= f.button "Assign Trainers", class: "btn btn-primary", type:"sumbit" %>
+<% end %>

@@ -19,8 +19,10 @@
 //= require owl.carousel.min
 //= require jquery.countTo
 //= require main
+//= require ajax
 //= require activestorage
 //= require turbolinks
 //= require ckeditor/init
 //= require cocoon
+//= require dropdown
 //= require_tree .

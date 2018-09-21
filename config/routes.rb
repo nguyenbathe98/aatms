@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   namespace :trainer do
   	resources :courses do
     	resources :subjects
+      resources :assign_trainees
+      resources :assign_trainers
     end
   end
   namespace :supervisor do
