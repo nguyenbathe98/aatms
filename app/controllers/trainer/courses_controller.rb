@@ -23,6 +23,10 @@ class Trainer::CoursesController < ApplicationController
     redirect_to trainer_course_path(@course)
   end
 
+  def index
+    @trainer_courses = current_trainer.courses
+  end
+
   def show
     redirect_to root_url and return unless @course
   end
