@@ -1,6 +1,7 @@
 class Trainer::CoursesController < ApplicationController
   before_action :find_course
   before_action :find_members_not_in_course , only: [:show]
+  
   def new
     @course = Course.new
   end
@@ -24,7 +25,7 @@ class Trainer::CoursesController < ApplicationController
   end
 
   def index
-    @trainer_courses = current_trainer.courses
+    @courses = Course.all
   end
 
   def show

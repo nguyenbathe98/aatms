@@ -10,10 +10,11 @@ Rails.application.routes.draw do
   	end
   end
   namespace :trainer do
-  	resources :courses, only: [:index, :show, :edit] do
+  	resources :courses do
     	resources :subjects
       resources :assign_trainees
       resources :assign_trainers
+      resources :course_subjects
     end
   end
   namespace :supervisor do

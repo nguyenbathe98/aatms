@@ -7,7 +7,7 @@ class CreateTraineeSubjects < ActiveRecord::Migration[5.2]
       t.references :course_subject, foreign_key: true
       t.references :course_trainee, foreign_key: true
       t.references :subject, foreign_key: true
-      t.integer :status
+      
 
       t.timestamps
     end

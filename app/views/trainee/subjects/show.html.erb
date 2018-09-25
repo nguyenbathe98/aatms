@@ -47,11 +47,13 @@
             </div>
             <div class="modal-body">
               <h3><%= trainee_task.course_subject_task.task.instruction %></h3>
+              <% if trainee_task.course_subject_task.course_subject.pending? %>
               Status:
               <% if trainee_task.finish? %>
                 <%= link_to trainee_task.status, trainee_course_subject_path(trainee_task.course_subject_task.course_subject.course_id, trainee_task.course_subject_task.task.subject_id, trainee_task.id),:method => :patch, class: "btn btn-primary" %>
               <% else %>
                 <%= link_to trainee_task.status, trainee_course_subject_path(trainee_task.course_subject_task.course_subject.course_id, trainee_task.course_subject_task.task.subject_id, trainee_task.id),:method => :patch, class: "btn btn-danger" %>
+              <% end %>
               <% end %>
             </div>
             <div class="modal-footer">
