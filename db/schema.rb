@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2018_08_26_205821) do
   create_table "course_subjects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "course_id"
     t.bigint "subject_id"
+    t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["course_id"], name: "index_course_subjects_on_course_id"
@@ -47,7 +48,6 @@ ActiveRecord::Schema.define(version: 2018_08_26_205821) do
   create_table "course_trainees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "trainee_id"
     t.bigint "course_id"
-    t.integer "status"
     t.datetime "start_date"
     t.datetime "finish_date"
     t.datetime "created_at", null: false
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 2018_08_26_205821) do
   create_table "courses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.text "description"
+    t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
@@ -109,7 +110,6 @@ ActiveRecord::Schema.define(version: 2018_08_26_205821) do
     t.bigint "course_subject_id"
     t.bigint "course_trainee_id"
     t.bigint "subject_id"
-    t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["course_subject_id"], name: "index_trainee_subjects_on_course_subject_id"

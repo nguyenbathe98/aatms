@@ -1,0 +1,5 @@
+<%= form_for [:trainer,@course] , url: trainer_course_course_subject_path(@course)do |f|%>
+	<%= f.hidden_field :course_subject_id, value: course_subject.id %>
+	<%= f.hidden_field :subject_status , value:course_subject.status %>
+	<%= f.button course_subject.status, class: "btn btn-primary", type:"sumbit" %>
+<% end %>

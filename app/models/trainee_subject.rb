@@ -3,5 +3,5 @@ class TraineeSubject < ApplicationRecord
   belongs_to :subject
   belongs_to :course_subject
   belongs_to :course_trainee
-  has_many :trainee_tasks
+  has_many :trainee_tasks, dependent: :destroy
 end

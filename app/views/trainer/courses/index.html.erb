@@ -6,21 +6,21 @@
           <div class="courses_container">
             <div class="row courses_row"> -->
               <!-- Course -->
-              <% @trainer_courses.each do |trainer_course| %>
+              <% @courses.each do |course| %>
               <div class="col-lg-6 course_col">
                 <div class="course">
-                  <div class="course_image"><%= link_to (image_tag trainer_course.image_url.to_s), trainer_course_path(trainer_course) %></div>
+                  <div class="course_image"><%= link_to (image_tag course.image_url.to_s), trainer_course_path(course) %></div>
                   <div class="course_body">
-                    <h3 class="course_title"><%= link_to trainer_course.name, trainer_course_path(trainer_course) %></h3>
-                    <div class="course_teacher"> Trainer: <%= trainer_course.trainers.name %></div>
+                    <h3 class="course_title"><%= link_to course.name, trainer_course_path(course) %></h3>
+                    <div class="course_teacher"> Trainer: <%= course.trainers.name %></div>
                     <hr>
                     <div class="course_text">
                       <div class="lesstext">
-                        <p><%= truncate strip_tags(trainer_course.description), length: 80 %></p>
+                        <p><%= truncate strip_tags(course.description), length: 80 %></p>
                       </div>
                       <div class="moretext">
                         <span>
-                          <p><%= strip_tags(trainer_course.description) %></p>
+                          <p><%= strip_tags(course.description) %></p>
                         </span>
                         <%= link_to "More", "#", class: "links" %>
                       </div>
@@ -30,7 +30,7 @@
                     <div class="course_footer_content d-flex flex-row align-items-center justify-content-start">
                       <div class="course_info">
                         <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-                        <span><%= trainer_course.trainers.count + trainer_course.trainees.count %> Members</span>
+                        <span><%= course.trainers.count + course.trainees.count %> Members</span>
                       </div>
                     </div>
                   </div>
