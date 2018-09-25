@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       resources :assign_trainees
       resources :assign_trainers
       resources :course_subjects
+      resource :finish_course, only:[:update]
     end
   end
   namespace :supervisor do
