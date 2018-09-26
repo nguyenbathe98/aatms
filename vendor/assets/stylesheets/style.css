@@ -1510,4 +1510,22 @@ th,td{
 }
 tr:hover {
     background-color: #ddd;
-} 
+}
+
+.status-course-finish {
+  text-align: center;
+  border-radius: 3px;
+  border: 1px solid black;
+  text-transform: uppercase;
+  font-size: 30px;
+  color: blue;
+}
+
+.status-course-pending {
+  text-align: center;
+  border-radius: 3px;
+  border: 1px solid black;
+  text-transform: uppercase;
+  font-size: 30px;
+  color: red;
+}
