@@ -1,0 +1,2 @@
+module Constructor::SubjectsHelper
+end

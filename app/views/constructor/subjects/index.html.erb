@@ -1,0 +1,7 @@
+<div id="colorlib-hero" class="js-fullheight" data-section="home">
+  <%= link_to "New Subject" , new_constructor_subject_path , class:"btn btn-success" %>
+  <h1>List Subjects</h1>
+  <% @subjects.each do |subject| %>
+        <li><%= link_to subject.name , constructor_subject_path(subject) , class:"btn btn-info" %></li>
+  <%end%>
+</div>

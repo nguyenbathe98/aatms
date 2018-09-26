@@ -1,11 +1,11 @@
-<%= form_for [:supervisor,Subject.new] do |f| %>
+<%= form_for [:constructor,@subject] do |f| %>
 <div class="field">
-  <%= f.label :name %></br>
-  <%= f.text_area :name  %>
+<%= f.label :name %></br>
+<%= f.text_area :name  %>
 </div>
 <div class="field">
-  <%= f.label :instruction %></br>
-  <%= f.text_area :instruction , class: "ckeditor" %>
+<%= f.label :instruction %></br>
+<%= f.text_area :instruction, class: "ckeditor" %>
 </div>
 <h3> Tasks </h3>
   <div id="tasks">
@@ -16,5 +16,5 @@
         <%= link_to_add_association 'add task', f, :tasks ,class: "btn-primary"%>
       </div>
   </div>
-<%= f.submit "New Subject" , class: "btn btn-primary" %>
+<%= f.submit "Edit" , class: "btn btn-primary"%>
 <% end %> 

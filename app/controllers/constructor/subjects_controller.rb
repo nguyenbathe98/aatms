@@ -1,10 +1,10 @@
-class Supervisor::SubjectsController < ApplicationController
+class Constructor::SubjectsController < ApplicationController
   before_action :find_subject
 
   def create
     @subject = Subject.new(subject_params)
     if @subject.save
-      redirect_to action: "index"
+      redirect_to constructor_subject_path(@subject)
     else
       redirect_to root_url and return
     end
@@ -24,7 +24,7 @@ class Supervisor::SubjectsController < ApplicationController
 
   def update
     @subject.update_attributes(subject_params)
-    redirect_to supervisor_subject_path(@subject)
+    redirect_to constructor_subject_path(@subject)
   end
 
   private

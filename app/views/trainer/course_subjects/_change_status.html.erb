@@ -1,4 +1,4 @@
-<div style="float:right; margin-top: -30px">
+<div style="float:right; padding-top: -30px">
 <%= form_for [:trainer,@course] , url: trainer_course_course_subject_path(@course)do |f|%>
 	<%= f.hidden_field :course_subject_id, value: course_subject.id %>
 	<%= f.hidden_field :subject_status , value:course_subject.status %>
