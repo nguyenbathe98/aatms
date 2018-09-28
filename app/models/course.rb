@@ -7,5 +7,5 @@ class Course < ApplicationRecord
   has_many :subjects,  through: :course_subjects
   has_many :trainers,  through: :course_trainers
   has_many :schedule
-  enum status: {pending: 0 ,finish: 1}
+  enum status: {start: 0 ,training: 1, finish:2}
 end

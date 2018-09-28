@@ -18,7 +18,7 @@ Rails.application.routes.draw do
       resource :finish_course, only:[:update]
     end
   end
-  namespace :supervisor do
+  namespace :constructor do
   	resources :subjects
   end
 end

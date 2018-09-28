@@ -1,6 +1,8 @@
 <div class="super_container">
   <div class="courses">
     <div class="container">
+      <%= link_to "List Subjects", constructor_subjects_path, class:"btn btn-info" %>
+      <%= link_to "New Course", new_trainer_course_path, class:"btn btn-primary" %>
       <div class="row">
 <!--      <div class="col-lg-8">
           <div class="courses_container">
@@ -33,10 +35,20 @@
                         <span><%= course.trainers.count + course.trainees.count %> Members</span>
                       </div>
                     </div>
+                    <% if course.start? %>
+                      <%= link_to course.status, trainer_course_finish_course_path(course.id),:method => :patch, class: "btn btn-primary" %>
+                    <% elsif course.training? %>
+                      <button type="button" class="btn btn-warning"><%=course.status %> ... </button>
+                      <%= link_to "Finish", trainer_course_finish_course_path(course.id),:method => :patch, class: "btn btn-success" %>
+                    <% else %>
+                      <button type="button" class="btn btn-danger"><%= course.status %>ED </button>
+                      <i class="fa fa-check-circle" style="font-size:25px;color:green"></i>
+                    <% end %>
                   </div>
                 </div>
               </div>
               <%end%>
+
 <!--          </div>
           </div>
         </div> -->

@@ -10,10 +10,10 @@ $(document).on("turbolinks:load", function() {
       var newHtml = sText + eText + "" + "";
       $(this).html(newHtml);
     } else {
-      $(".links").remove();
+      $(".link").remove();
     }
   });
-  $(".links").on("click", function(e) {
+  $(".link").on("click", function(e) {
     var lnkHTML = $(this).html();
     if (lnkHTML == lesstext) {
       $(this).html(moretext);
