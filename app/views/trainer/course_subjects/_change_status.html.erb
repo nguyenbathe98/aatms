@@ -1,7 +1,12 @@
 <div style="float:right; padding-top: -30px">
-<%= form_for [:trainer,@course] , url: trainer_course_course_subject_path(@course)do |f|%>
-	<%= f.hidden_field :course_subject_id, value: course_subject.id %>
-	<%= f.hidden_field :subject_status , value:course_subject.status %>
-	<%= f.button course_subject.status, class: "btn btn-primary", type:"sumbit" %>
-<% end %>
+  <% if course_subject.finish? %>
+    <button type="button" class="btn btn-danger"><%= course_subject.status %>ED </button>
+        <i class="fa fa-check-circle" style="font-size:25px;color:green"></i> 
+    <% else %>
+    <%= form_for [:trainer,@course] , url: trainer_course_course_subject_path(@course)do |f|%>
+      <%= f.hidden_field :course_subject_id, value: course_subject.id %>
+      <%= f.hidden_field :subject_status , value:course_subject.status %>
+      <%= f.button course_subject.status, class: "btn btn-primary", type:"sumbit" %>
+    <% end %>
+  <% end %>
 </div>

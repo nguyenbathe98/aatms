@@ -1,9 +1,9 @@
-<%= link_to "Edit Course", edit_trainer_course_path(@course), class: "btn btn-info" %>
+<%= link_to (t".edit_course"), edit_trainer_course_path(@course), class: "btn btn-info" %>
 <% if @course.start? %>
   <%= link_to @course.status, trainer_course_finish_course_path(@course.id),:method => :patch, class: "btn btn-primary" %>
 <% elsif @course.training? %>
   <button type="button" class="btn btn-warning"><%=@course.status %> ... </button>
-  <%= link_to "Finish", trainer_course_finish_course_path(@course.id),:method => :patch, class: "btn btn-success" %>
+  <%= link_to (t".finish"), trainer_course_finish_course_path(@course.id),:method => :patch, class: "btn btn-success" %>
 <% else %>
   <button type="button" class="btn btn-danger"><%= @course.status %>ED </button>
   <i class="fa fa-check-circle" style="font-size:25px;color:green"></i>
