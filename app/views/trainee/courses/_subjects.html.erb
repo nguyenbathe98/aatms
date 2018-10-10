@@ -1,13 +1,6 @@
 <% @course_subjects.each do |course_subject| %>
-  <h2><%= link_to course_subject.subject.name, trainee_course_subject_path(@course, course_subject.subject) %></h2>
-  <div class="lesstext">
-    <p><%= truncate strip_tags( raw course_subject.subject.instruction), length: 90 %></p>
-  </div>
-  <div class="moretext">
-    <span>
-      <p><%= strip_tags(raw course_subject.subject.instruction) %></p>
-    </span>
-    <%= link_to "More", "#", class: "link" %>
-  </div>
+  <h2><%= link_to course_subject.subject.name, trainee_course_subject_path(@course, course_subject.subject) %>
+  </h2>
+    <p><%= truncate(course_subject.subject.instruction, length: 90) %></p>
   <hr>
 <% end %>
