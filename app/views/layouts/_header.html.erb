@@ -1,10 +1,10 @@
 <div class="header" >
   <% if trainee_signed_in? %>
-            <li><%= link_to "logout", destroy_trainee_session_path, method: :delete, class: "link_to" %></li>
-            <%= render "layouts/left_bar" %>
-          <% end %>
-          <% if trainer_signed_in? %>
-            <li><%= link_to "logout", destroy_trainer_session_path, method: :delete,class: "link_to" %></li>
-            <%= render "layouts/left_bar" %>
-          <% end %>
+    <li><%= link_to "logout", destroy_trainee_session_path, method: :delete, class: "link_to" %></li>
+    <%= render "layouts/left_bar" %>
+  <% end %>
+  <% if trainer_signed_in? %>
+    <li><%= link_to "logout", destroy_trainer_session_path, method: :delete,class: "link_to" %></li>
+    <%= render "layouts/left_bar" %>
+  <% end %>
 </div>

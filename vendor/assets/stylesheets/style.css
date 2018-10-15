@@ -78,7 +78,6 @@ figure {
   float: left;
   width: 300px;
   position: fixed;
-  overflow-y: scroll;
   z-index: 1001;
   background: #f2f3f7;
   -webkit-transition: 0.5s;
@@ -94,8 +93,8 @@ figure {
       transform: translateX(-300px);
       padding-top: 4em; } }
   #colorlib-aside .author-img {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     margin: 0 auto;
     margin-bottom: 30px;
     -webkit-border-radius: 50%;
