@@ -1,5 +1,5 @@
 class Subject < ApplicationRecord
-  has_many :tasks
+  has_many :tasks 
   has_many :trainee_subjects
   has_many :course_subjects , dependent: :destroy
   has_many :course_subject_tasks, through: :course_subjects
