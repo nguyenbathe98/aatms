@@ -1,7 +1,16 @@
 <div id="colorlib-hero" class="js-fullheight" data-section="home">
   <%= link_to "New Subject" , new_constructor_subject_path , class:"btn btn-success" %>
   <h1>List Subjects</h1>
-  <% @subjects.each do |subject| %>
-        <li><%= link_to subject.name , constructor_subject_path(subject) , class:"btn btn-info" %></li>
-  <%end%>
+  <div class="list-type1">
+    <ol>
+      <% @subjects.each do |subject| %>
+        <div class="subject_name">
+          <li><%= link_to subject.name , constructor_subject_path(subject), class: "link_to_font" %></li>
+          <div class="short_content_subject">
+            <%= raw subject.instruction.truncate(100) %>
+          </div>
+        </div>
+      <%end%>
+    </ol>
+  </div>
 </div>
