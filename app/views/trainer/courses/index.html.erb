@@ -13,7 +13,7 @@
               <div class="course_teacher"> Trainer: <%= course.trainers.name %></div>
               <hr>
               <div class="course_text">
-                <p><%= truncate(course.description, length: 209) %></p>
+                <p><%= course.description.truncate(209) %></p>
               </div>
             </div>
             <div class="course_footer">

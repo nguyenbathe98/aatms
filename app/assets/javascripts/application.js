@@ -21,8 +21,8 @@
 //= require main
 //= require ajax
 //= require activestorage
-//= require turbolinks
 //= require ckeditor/init
 //= require cocoon
 //= require dropdown
+//= require turbolinks
 //= require_tree .
