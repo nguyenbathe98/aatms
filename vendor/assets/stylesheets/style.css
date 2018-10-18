@@ -219,7 +219,7 @@ figure {
   margin: 0 auto; }
 
 #colorlib-main {
-  margin-top: 20px;
+  margin-top: 30px;
   width: calc(100% - 300px);
   float: right;
   -webkit-transition: 0.5s;
