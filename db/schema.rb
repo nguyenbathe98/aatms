@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_26_205821) do
+ActiveRecord::Schema.define(version: 2018_10_26_020727) do
 
   create_table "ckeditor_assets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "data_file_name", null: false
@@ -72,6 +72,24 @@ ActiveRecord::Schema.define(version: 2018_08_26_205821) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
+  end
+
+  create_table "notification_statuses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "status", default: 0, null: false
+    t.bigint "notification_id"
+    t.bigint "course_trainee_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_trainee_id"], name: "index_notification_statuses_on_course_trainee_id"
+    t.index ["notification_id"], name: "index_notification_statuses_on_notification_id"
+  end
+
+  create_table "notifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "event"
+    t.bigint "course_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_notifications_on_course_id"
   end
 
   create_table "schedules", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -171,6 +189,9 @@ ActiveRecord::Schema.define(version: 2018_08_26_205821) do
   add_foreign_key "course_trainees", "trainees"
   add_foreign_key "course_trainers", "courses"
   add_foreign_key "course_trainers", "trainers"
+  add_foreign_key "notification_statuses", "course_trainees"
+  add_foreign_key "notification_statuses", "notifications"
+  add_foreign_key "notifications", "courses"
   add_foreign_key "schedules", "courses"
   add_foreign_key "schedules", "subjects"
   add_foreign_key "tasks", "subjects"

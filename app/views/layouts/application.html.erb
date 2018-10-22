@@ -28,12 +28,12 @@
   </head>
 
   <body>
+        <% if trainee_signed_in? || trainer_signed_in? %>
     <%= render "layouts/header" %>
     <%#p class="notice"><%= notice %></p>
     <%#p class="alert"><%= alert %></p>
     <div class="container-wrap">
       <div>
-        <% if trainee_signed_in? || trainer_signed_in? %>
           <div id="colorlib-main">
           <%= yield %>
           </div>

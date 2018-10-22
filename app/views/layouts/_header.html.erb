@@ -1,9 +1,75 @@
 <div class="header" >
   <% if trainee_signed_in? %>
     <li><%= link_to "logout", destroy_trainee_session_path, method: :delete, class: "link_to" %></li>
+  	<li><%= render partial: 'notifications/notification_center' , locals:{notifications: @notifications , notifications_unread: @notifications_unread,
+        current_course: @current_course} %></li>
     <%= render "layouts/left_bar" %>
   <% elsif trainer_signed_in? %>
     <li><%= link_to "logout", destroy_trainer_session_path, method: :delete,class: "link_to" %></li>
+        <% if params[:action] == "show" && params[:controller] != "constructor/subjects"%>
+        <%= render partial: 'notifications/notification_center' , locals:{notifications: @notifications} %></li>
+        <%end%>
     <%= render "layouts/left_bar" %>
   <% end %>
 </div>
+<% if trainee_signed_in? %>
+    <script type="text/javascript">
+        $(document).ready(function()
+    {
+        if ('<% trainee_signed_in? %>' == true) {
+            if ('<%= @notifications_unread.count%>' == 0) 
+            {
+                $("#notification-counter").hide();
+            }
+        }
+        $("#open_notification").click(function()
+        {
+            $("#notificationContainer").fadeToggle(300);
+            $("#notification_count").fadeOut("fast");
+            $("#notification-counter").hide();
+            $.ajax({
+                type: "GET",
+                url: "/courses/<%= @current_course.id%>/notifications",
+            })
+            return false;
+        });
+
+        $(document).click(function()
+        {
+            $("#notificationContainer").hide();
+        });
+     
+     
+        $("#notificationContainer").click(function()
+        {
+            return false;
+        });
+    });
+        
+    </script>
+<% elsif trainer_signed_in? %>
+    <script type="text/javascript">
+        $(document).ready(function()
+    {
+        $("#open_notification").click(function()
+        {
+            $("#notificationContainer").fadeToggle(300);
+            $("#notification_count").fadeOut("fast");
+            $("#notification-counter").hide();
+            return false;
+        });
+
+        $(document).click(function()
+        {
+            $("#notificationContainer").hide();
+        });
+     
+     
+        $("#notificationContainer").click(function()
+        {
+            return false;
+        });
+    });
+        
+    </script>
+<%end%>
