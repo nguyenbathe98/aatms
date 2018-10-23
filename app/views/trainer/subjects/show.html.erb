@@ -8,7 +8,6 @@
               <div class="js-fullheight slider-text">
                 <div class="slider-text-inner js-fullheight">
                   <div class="desc">
-
                     <h1><%= @course_subject.subject.name %></h1>
                     <h2><%= raw @course_subject.subject.instruction %> </h2>
                   </div>
@@ -27,7 +26,7 @@
           <div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft">
             <div class="col-md-12">
               <div class="about-desc">
-                <h2 class="colorlib-heading"><%= t ".list_task" %><%=@course_subject.subject.name%></h2>
+                <h2 class="colorlib-heading"><%= t ".list_task" %></h2>
               </div>
             </div>
           </div>
@@ -35,6 +34,7 @@
       </div>
     </div>
     <% @course_subject.subject.tasks.each do |cst| %>
+        <hr>
         <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal-<%= cst.id%>">
           <%= cst.name %>
         </button>
