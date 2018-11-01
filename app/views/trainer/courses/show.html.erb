@@ -1,63 +1,52 @@
-<%= link_to (t".edit_course"), edit_trainer_course_path(@course), class: "btn btn-info" %>
-<% if @course.start? %>
-  <%= link_to @course.status, trainer_course_finish_course_path(@course.id),:method => :patch, remote: true, class: "btn btn-primary" %>
-<% elsif @course.training? %>
-  <button type="button" class="btn btn-warning"><%=@course.status %><div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div> </button>
-  <%= link_to (t".finish"), trainer_course_finish_course_path(@course.id),:method => :patch, remote: true, class: "btn btn-success" %>
-<% else %>
-  <button type="button" class="btn btn-danger"><%= @course.status %>ED </button>
-  <i class="fa fa-check-circle" style="font-size:25px;color:green"></i>
-<% end %>
-<div class="super_container">
-    <div class="container">
-      <div class="row">
-        <div class="course_title"><%= @course.name %></div>
-        <div class="course_image"><%= image_tag @course.image_url.to_s %></div>
-        <div class="course_info"></div>
-        <div class="course_tabs_container">
-          <div class="tab_panels">
-            <div class="tab_panel_content">
-              <div class="tab_panel_text">
-                <h3><%= @course.description %></h3>
-                <hr>
-                <%= render "subjects" %>
-              </div>
-            </div>
-              <button id="myBtn"><div class="course_info">
-                    <i class="fa fa-graduation-cap" aria-hidden="true" , href="index.html"></i>
-                    <span><%= @course.trainers.count + @course.trainees.count %> Members</span>
-                  </div></button>
-              <div id="myModal" class="modal">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <span class="close">&times;</span>
-                  </div>
-                  <div class="modal-body">
-                <%= render partial: "trainer/assign_trainers/assign" %>
-                <hr>
-                <%= render partial: "trainer/assign_trainees/assign" %>
-                  </div>
+<div>
+  <%= link_to (t".edit_course"), edit_trainer_course_path(@course), class: "btn btn-info" %>
+  <% if @course.start? %>
+    <%= link_to @course.status, trainer_course_finish_course_path(@course.id),:method => :patch, class: "btn btn-primary" %>
+  <% elsif @course.training? %>
+    <button type="button" class="btn btn-warning"><%=@course.status %> ... </button>
+    <%= link_to (t".finish"), trainer_course_finish_course_path(@course.id),:method => :patch, class: "btn btn-success" %>
+  <% else %>
+    <button type="button" class="btn btn-danger"><%= @course.status %>ED </button>
+    <i class="fa fa-check-circle" style="font-size:25px;color:green"></i>
+  <% end %>
+</div>
+<div class="col col-md-7">
+  <div class="super_container">
+      <div class="container">
+        <div class="row">
+          <div class="course_title"><%= @course.name %></div>
+          <div class="course_image"><%= image_tag @course.image_url.to_s %></div>
+          <div class="course_info"></div>
+          <div class="course_tabs_container">
+            <div class="tab_panels">
+              <div class="tab_panel_content">
+                <div class="tab_panel_text">
+                  <h3><%= @course.description %></h3>
+                  <hr>
+                  <%= render "subjects" %>
                 </div>
               </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+  </div>
 </div>
-
-<script>
-var modal = document.getElementById('myModal');
-var btn = document.getElementById("myBtn");
-var span = document.getElementsByClassName("close")[0];
-btn.onclick = function() {
-    modal.style.display = "block";
-}
-span.onclick = function() {
-    modal.style.display = "none";
-}
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-</script>
+<div class="col col-md-5">
+  <div class="container">
+    <div class="container-fluid">
+      <div class="row">
+        <%= render partial: "trainer/table_list/table_trainees" %>
+      </div>
+      <div class="row">
+        <%= render partial: "trainer/assign_trainees/assign_trainees" %>
+      </div>
+      <div class="row">
+        <%= render partial: "trainer/table_list/table_trainers" %>
+      </div>
+      <div class="row">
+        <%= render partial: "trainer/assign_trainers/assign_trainers" %>
+      </div>
+    </div>
+  </div>
+</div>

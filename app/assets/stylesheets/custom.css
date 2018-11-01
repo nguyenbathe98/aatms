@@ -24,7 +24,7 @@
 	font-family: "Roboto Slab"
 }
 form{
-	margin-top: 50px;
+	margin-top: 15px;
 }
 .list-type1{
 width:400px;
@@ -110,7 +110,6 @@ color:#ffff00;
 	color: #000000;
 }
 
-
 .lds-ellipsis {
   display: inline-block;
   position: relative;
@@ -166,4 +165,12 @@ color:#ffff00;
   100% {
     transform: translate(19px, 0);
   }
+}
+
+.modal-backdrop {
+	z-index: 0 !important;
+}
+
+td {
+	line-height: 30px;
 }

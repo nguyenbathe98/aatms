@@ -1,0 +1,20 @@
+<h3><%= @course.trainers.count %> <%= t(".trainers") %></h3>
+<table>
+  <tr>
+    <th><%= t(".stt")%></th>
+    <th><%= t(".name")%></th>
+    <th><%= t(".email")%></th>
+    <th><%= t(".status")%></th>
+  </tr>
+  <% @course.course_trainers.each_with_index do |trainer_of_course, index| %>
+    <tr>
+      <td><%= index %></td>
+      <td><%= trainer_of_course.trainer.name %></td>
+      <td><%= trainer_of_course.trainer.email %></td>
+      <%= form_for (trainer_of_course), url: trainer_course_assign_trainer_path(@course), method: :delete do |f| %>
+        <%= f.hidden_field :id %>
+        <td><%= f.button t(".x"), type:"submit", class:"btn-danger" %></td>
+      <% end %>
+    </tr>
+  <%end%>
+</table>

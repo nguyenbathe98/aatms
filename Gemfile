@@ -22,6 +22,7 @@ gem 'carrierwave'
 gem 'ckeditor'
 gem "cocoon"
 gem 'webpacker', '~> 3.5'
+gem 'jquery-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
