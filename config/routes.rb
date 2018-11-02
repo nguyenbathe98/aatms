@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount ActionCable.server => '/cable'
   mount Ckeditor::Engine => '/ckeditor'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root 'static_pages#home'
@@ -20,5 +21,8 @@ Rails.application.routes.draw do
   end
   namespace :constructor do
   	resources :subjects
+  end
+  resources :courses do
+    resources :notifications
   end
 end

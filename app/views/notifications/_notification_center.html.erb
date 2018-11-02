@@ -1,0 +1,20 @@
+<ul class="notificator">
+  <a href="#" id="open_notification">
+    <% if current_trainee %>
+      <%= render partial: 'notifications/counter', locals:{counter: notifications_unread.count} %>
+    <% elsif current_trainer %>
+      <%= render partial: 'notifications/counter', locals:{counter: notifications.count} %>
+    <%end%>
+  </a>
+  <div id="notificationContainer">
+    <div id="notificationTitle">Notifications</div>
+    <div id="notificationsBody" class="notifications">
+      <ul id="notificationList">
+        <% notifications.each do |notification| %>
+          <%= render partial:"notifications/notification" , locals:{notification: notification} %>
+        <%end%>
+      </ul>
+    </div>
+    <div id="notificationFooter"></div>
+  </div>
+</ul>

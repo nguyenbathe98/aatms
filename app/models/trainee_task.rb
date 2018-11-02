@@ -1,4 +1,5 @@
 class TraineeTask < ApplicationRecord
+  after_update_commit :notify
   belongs_to :trainee
   belongs_to :task
   belongs_to :course_subject_task
@@ -9,6 +10,17 @@ class TraineeTask < ApplicationRecord
   	course_subject.trainee_subjects.each do |trainee_subject|
       course_subject.course_subject_tasks.each do |course_subject_task|
         course_subject_task.trainee_tasks.build trainee_id: trainee_subject.trainee.id , course_subject_task_id: course_subject_task.id ,trainee_subject_id: trainee_subject.id, task_id: course_subject_task.task.id
+      end
+    end
+  end
+
+  private
+  def notify
+    ActiveRecord::Base.transaction do
+      new_notification = Notification.create(event: "#{self.trainee.name} #{self.status} task #{self.task.name}" , course_id: self.trainee_subject.course_trainee.course.id)
+      self.trainee_subject.course_trainee.course.course_trainees.each do |course_trainee|
+        new_notification_statuses = course_trainee.notification_statuses.build( course_trainee_id: course_trainee.id , notification_id: new_notification.id )
+        new_notification_statuses.save
       end
     end
   end

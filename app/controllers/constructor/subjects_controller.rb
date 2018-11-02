@@ -1,6 +1,6 @@
 class Constructor::SubjectsController < ApplicationController
+  skip_before_action :notifications , only: [:show], raise: false
   before_action :find_subject
-
   def create
     @subject = Subject.new(subject_params)
     if @subject.save
