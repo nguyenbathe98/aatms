@@ -14,6 +14,9 @@ class Trainer::FinishCoursesController < ApplicationController
         course_subject.finish!
       end
     end
-    redirect_to trainer_course_path(course.id)
+    respond_to do |format|
+      format.html {redirect_to trainer_course_path(course.id)}
+    end
+    
   end
 end

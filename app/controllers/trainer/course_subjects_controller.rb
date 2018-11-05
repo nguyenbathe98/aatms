@@ -11,7 +11,9 @@ class Trainer::CourseSubjectsController < ApplicationController
     elsif params[:course][:subject_status] == "pending"
       course_subject.finish! 
     end
-    redirect_to trainer_course_path(@course)
+    respond_to do |format|
+      format.html {redirect_to trainer_course_path(@course)}
+    end
   end
 
   private
