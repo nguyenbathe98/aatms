@@ -24,10 +24,10 @@
                 </div>
               </div>
               <% if course.start? %>
-                <%= link_to course.status, trainer_course_finish_course_path(course.id),:method => :patch, class: "btn btn-primary" %>
+                <%= link_to course.status, trainer_course_finish_course_path(course.id),:method => :patch,remote: true, class: "btn btn-primary" %>
               <% elsif course.training? %>
                 <button type="button" class="btn btn-warning"><%=course.status %> ... </button>
-                <%= link_to "Finish", trainer_course_finish_course_path(course.id),:method => :patch, class: "btn btn-success" %>
+                <%= link_to "Finish", trainer_course_finish_course_path(course.id),:method => :patch,remote: true, class: "btn btn-success" %>
               <% else %>
                 <button type="button" class="btn btn-danger"><%= course.status %>ED </button>
                 <i class="fa fa-check-circle" style="font-size:25px;color:green"></i>
