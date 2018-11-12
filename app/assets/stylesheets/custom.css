@@ -101,10 +101,12 @@ color:#ffff00;
 .list-type1 .subject_name:hover .link_to_font {
 	color: #000000;
 }
+
 .short_content_subject{
 	font-size: 12px;
 	display: none;
 }
+
 .list-type1 .subject_name:hover .short_content_subject{
 	display: block;
 	color: #000000;
@@ -173,4 +175,12 @@ color:#ffff00;
 
 td {
 	line-height: 30px;
+}
+
+.form-inline {
+	float: right;
+}
+
+.title-search {
+	margin-top: 20px !important;
 }

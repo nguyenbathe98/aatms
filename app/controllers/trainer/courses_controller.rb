@@ -2,7 +2,19 @@ class Trainer::CoursesController < ApplicationController
   before_action :find_course
   before_action :find_members_not_in_course , only: [:show]
   def index
-    @courses = Course.all
+    if !params[:q]
+      @courses = Course.all
+    else
+      @courses = Course.ransack(name_cont: params[:q]).result.limit(5)
+      search_param = params[:q]
+      @title_search = search_param.present? ? t("search_for", search_param: search_param) : t("all_course")
+
+      respond_to do |format|
+        format.html {}
+        format.json {
+        }
+      end
+    end
   end
 
   def new
@@ -25,10 +37,6 @@ class Trainer::CoursesController < ApplicationController
   def update
     @course.update_attributes(course_params)
     redirect_to trainer_course_path(@course)
-  end
-
-  def index
-    @courses = Course.all
   end
 
   def show

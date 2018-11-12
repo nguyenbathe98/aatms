@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
   before_action :signed_in?
   before_action :notifications, only: [:show]
-    before_action :set_current_trainee
+  before_action :set_search_params
+  before_action :set_current_trainee
   #   check_authorization :unless => :devise_controller?
   # rescue_from CanCan::AccessDenied do |exception|
   #   render :file => "/public/404.html", :status => 404, :layout => false
@@ -17,6 +18,9 @@ class ApplicationController < ActionController::Base
     #   super
     #   @current_trainer ||= Trainer.find(session[:trainer_id]) if session[:trainer_id]
     # end
+    def set_search_params
+      @q = Course.ransack(params[:q])
+    end
 
     def current_ability
       @current_ability ||= current_trainer ? TrainerAbility.new(current_trainer) : TraineeAbility.new(current_trainee)
@@ -26,11 +30,11 @@ class ApplicationController < ActionController::Base
       if current_trainer
         course_params = params[:course_id] ? params[:course_id] : params[:id]
         current_course = Course.find_by id: course_params
-        @notifications = current_course.notifications.reverse 
+        @notifications = current_course.notifications.reverse
       elsif current_trainee
         course_params = params[:course_id] ? params[:course_id] : params[:id]
         @current_course = Course.find_by id: course_params
-        @notifications = @current_course.notifications.reverse 
+        @notifications = @current_course.notifications.reverse
         current_course_trainee = CourseTrainee.find_by course_id: @current_course.id , trainee_id: current_trainee.id
         @notifications_unread = current_course_trainee.notification_statuses.unread
       end
