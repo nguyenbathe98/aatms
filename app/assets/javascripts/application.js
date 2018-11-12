@@ -12,6 +12,7 @@
 //
 //= require rails-ujs
 //= require jquery.min
+//= require jquery_ujs
 //= require modernizr-2.6.2.min
 //= require bootstrap.min
 //= require jquery.waypoints.min

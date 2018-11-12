@@ -1,4 +1,15 @@
-<h3><%= @course.trainees.count %> Trainees </h3>
-<% @trainee_of_courses.each do |trainee_of_course| %>
-  <p><%= trainee_of_course.name %></p>
-<%end%>
+<h3><%= @course.trainees.count %> <%= t(".trainees") %></h3>
+<table>
+  <tr>
+    <th><%= t(".stt") %></th>
+    <th><%= t(".name") %></th>
+    <th><%= t(".email")%></th>
+  </tr>
+  <% @trainee_of_courses.each_with_index do |trainee_of_course, index| %>
+    <tr>
+      <td><%= index %></td>
+      <td><%= trainee_of_course.name %></td>
+      <td><%= trainee_of_course.email %></td>
+    </tr>
+  <%end%>
+</table>

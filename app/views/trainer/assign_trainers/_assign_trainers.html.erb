@@ -1,0 +1,16 @@
+<button id="myBtn1" data-toggle="modal" data-target="#myModal14" class="btn btn-primary">
+  <span><%= t(".assgin_trainers") %></span>
+</button>
+<div class="modal" id="myModal14">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title"><%= t(".add_trainers") %></h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <%= render partial: "trainer/assign_trainers/assign" %>
+      </div>
+    </div>
+  </div>
+</div>
