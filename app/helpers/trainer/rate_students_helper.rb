@@ -1,0 +1,2 @@
+module Trainer::RateStudentsHelper
+end

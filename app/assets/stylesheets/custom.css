@@ -112,6 +112,7 @@ color:#ffff00;
 	color: #000000;
 }
 
+
 .lds-ellipsis {
   display: inline-block;
   position: relative;
@@ -183,4 +184,54 @@ td {
 
 .title-search {
 	margin-top: 20px !important;
+}
+.rate_students {
+	margin: 0px;
+	background-color: gray;
+
+}
+.trainee_name{
+	color:blue;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+
+.score{
+	padding: 5px;
+	border-radius: 4px;
+	background-color: #DC3D24;
+	font-weight: bold;
+	color:#FFFFFF;
+}
+
+.button_comment_student {
+	background-color: lightblue;
+	padding: 5px 10px 5px 10px; 
+	border-radius: 10px;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 7px 0 rgba(0, 0, 0, 0.19);
+}
+.field_comment {
+	background-color: lightgray;
+	width: 50%;
+	border-radius: 10px;
+	padding: 5px;
+}
+.back_to_course{
+	background-color: lightblue;
+	padding: 5px 10px 5px 10px;
+	border-radius: 10px;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 7px 0 rgba(0, 0, 0, 0.19);
+	position: fixed;
+	right: 0px;
+	color : blue;
+}
+.score_in_student_view {
+	text-align: center;
+	font-size: 20px;
+	font-weight: bold;
+	padding: 0px 100px 0px 100px;
+	background-color: red;
+	color: yellow;
+	border-radius: 20px;
 }
