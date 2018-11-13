@@ -40,6 +40,7 @@ class ApplicationController < ActionController::Base
       end
     end
 
+
     def set_current_trainee
       Trainee.current = current_trainee
     end
