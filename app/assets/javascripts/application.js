@@ -27,4 +27,5 @@
 //= require cocoon
 //= require dropdown
 //= require turbolinks
+//= require jquery.easy-autocomplete
 //= require_tree .

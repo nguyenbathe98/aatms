@@ -1,4 +1,6 @@
 en:
+  search_for: "Search for: %{search_param}"
+  all_course: "All courses"
   trainee:
     subjects:
       show:
@@ -34,3 +36,17 @@ en:
         email: "Email"
         status: "Status"
         x: "[X]"
+    courses:
+      index:
+        list_subject: "List Subject"
+        new_course: "New Course"
+        trainer: " Trainer: "
+        member: " Members"
+        finish: "Finish"
+    subjects:
+      show:
+        list_task: "List Task: "
+  layouts:
+    header:
+      search: "Search..."
+      go: "Go"

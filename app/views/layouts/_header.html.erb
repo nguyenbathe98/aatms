@@ -9,15 +9,20 @@
         <% if params[:action] == "show" && params[:controller] != "constructor/subjects"%>
         <%= render partial: 'notifications/notification_center' , locals:{notifications: @notifications} %></li>
         <%end%>
+    <%= form_with url: trainer_courses_path, local: true, method: :get, html: { class: "form-inline my-2 my-lg-0" } do |f| %>
+      <%= f.text_field :q, placeholder: t(".search"), data: { behavior: "autocomplete" }, class: "form-control mr-sm-2" %>
+      <%= f.button t(".go"), class: "btn btn-outline-success my-2 my-sm-0" %>
+    <% end %>
     <%= render "layouts/left_bar" %>
   <% end %>
+
 </div>
 <% if trainee_signed_in? %>
     <script type="text/javascript">
         $(document).ready(function()
     {
         if ('<% trainee_signed_in? %>' == true) {
-            if ('<%= @notifications_unread.count%>' == 0) 
+            if ('<%= @notifications_unread.count%>' == 0)
             {
                 $("#notification-counter").hide();
             }
@@ -38,14 +43,14 @@
         {
             $("#notificationContainer").hide();
         });
-     
-     
+
+
         $("#notificationContainer").click(function()
         {
             return false;
         });
     });
-        
+
     </script>
 <% elsif trainer_signed_in? %>
     <script type="text/javascript">
@@ -63,13 +68,14 @@
         {
             $("#notificationContainer").hide();
         });
-     
-     
+
+
         $("#notificationContainer").click(function()
         {
             return false;
         });
     });
-        
+
     </script>
 <%end%>
+
