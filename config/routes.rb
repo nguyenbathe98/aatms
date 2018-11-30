@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   end
   namespace :trainer do
   	resources :courses do
-    	resources :subjects
+      resources :subjects do
+        resources :rate_students
+      end
       resources :assign_trainees
       resources :assign_trainers
       resources :course_subjects

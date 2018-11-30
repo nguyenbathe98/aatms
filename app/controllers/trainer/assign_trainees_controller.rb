@@ -11,7 +11,7 @@ class Trainer::AssignTraineesController < ApplicationController
 
   def destroy
     delete_trainee = CourseTrainee.find_by id: params[:course_trainee][:id]
-    delete_trainee.delete
+    delete_trainee.destroy
     redirect_to trainer_course_path(@course)
   end
 

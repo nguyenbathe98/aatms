@@ -6,4 +6,5 @@ class Trainer < ApplicationRecord
   has_many :course_trainers
   has_many :courses, through: :course_trainers
   scope :trainer_data , -> (course){where.not(id: CourseTrainer.select(:trainer_id).where(course: course))}
+
 end
