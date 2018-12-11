@@ -1,0 +1,34 @@
+<!-- Course Sidebar -->
+<div class="col-lg-4">
+  <div class="sidebar">
+    <!-- Feature -->
+    <div class="sidebar_section">
+      <div class="sidebar_section_title"><%= t".feature" %></div>
+      <div class="sidebar_feature">
+        <!-- Features -->
+        <div class="feature_list">
+          <!-- Feature -->
+          <div class="feature d-flex flex-row align-items-center justify-content-start">
+            <div class="feature_title"><i class="fa fa-calendar-check-o" aria-hidden="true"></i><span><%= t".start_date" %></span></div>
+            <div class="feature_text ml-auto"><%= @current_subject.start_date.strftime(t(".time_default")) %></div>
+          </div>
+          <!-- Feature -->
+          <div class="feature d-flex flex-row align-items-center justify-content-start">
+            <div class="feature_title"><i class="fa fa-calendar-times-o" aria-hidden="true"></i><span><%= t".finish_date" %></span></div>
+            <div class="feature_text ml-auto"><%= @current_subject.finish_date.strftime(t(".time_default")) %></div>
+          </div>                             
+          <!-- Feature -->
+          <div class="feature d-flex flex-row align-items-center justify-content-start">
+            <div class="feature_title"><i class="fa fa-files-o" aria-hidden="true"></i><span><%= t".tasks" %></span></div>
+            <div class="feature_text ml-auto"><%= @tasks_of_subject.count %></div>
+          </div>
+          <!-- Feature -->
+          <div class="feature d-flex flex-row align-items-center justify-content-start">
+            <div class="feature_title"><i class="fa fa-check-square-o" aria-hidden="true"></i><span><%= t".tasks_finished" %></span></div>
+            <div class="feature_text ml-auto"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -10,9 +10,9 @@
                     current_course: @current_course} %></li>
                 <%end%>
               <% elsif trainer_signed_in? %>
-                  <% if params[:action] == "show" && params[:controller] != "constructor/subjects"%>
-                  <%= render partial: 'notifications/notification_center' , locals:{notifications: @notifications} %></li>
-                  <%end%>
+                <% if params[:action] == "show" && params[:controller] != "constructor/subjects"%>
+                <%= render partial: 'notifications/notification_center' , locals:{notifications: @notifications} %></li>
+                <%end%>
               <% end %>
             </div>
             <div class="row">
@@ -41,20 +41,19 @@
               <div class="col">
                   <div class="header_content d-flex flex-row align-items-center justify-content-start">
                       <div class="logo_container">
-                          <a href="#">
-                              <div class="logo_text"><%= t".awesome" %><span><%= t".academy" %></span></div>
-                          </a>
+                        <a href="#">
+                          <div class="logo_text"><%= t".awesome" %><span><%= t".academy" %></span></div>
+                        </a>
                       </div>
                       <nav class="main_nav_contaner ml-auto">
-                          <ul class="main_nav">
-                              <li><a href="index.html"><%= t".home" %></a></li>
-                          </ul>
-                          <div class="search_button"><i class="fa fa-search" aria-hidden="true"></i></div>
-
-                          <!-- Hamburger -->
-                          <div class="hamburger menu_mm">
-                              <i class="fa fa-bars menu_mm" aria-hidden="true"></i>
-                          </div>
+                        <% if trainer_signed_in? %>
+                        <%= form_with url: trainer_courses_path, local: true, method: :get, html: { class: "form-inline my-2 my-lg-0" } do |f| %>
+                        <%= f.text_field :q, placeholder: t(".text"), data: { behavior: "autocomplete" }, class: "form-control mr-sm-2" %>
+                        <div class="search_button"><i class="fa fa-search" aria-hidden="true">
+                          <%= f.button t".search"%>
+                        </i></div>
+                        <% end %>
+                        <% end %>
                       </nav>
                   </div>
               </div>

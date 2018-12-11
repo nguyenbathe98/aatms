@@ -939,10 +939,12 @@ section
 {
 	margin-top: 13px;
 }
+
 .course_footer
 {
 	padding-left: 30px;
 	padding-right: 30px;
+	padding-bottom: 10px
 }
 .course_footer_content
 {
@@ -1116,6 +1118,13 @@ section
 {
 	width: 100%;
 	padding-left: 40px;
+	padding-top: 40px;
+}
+.assign
+{
+	width: 100%;
+	padding-left: 40px;
+	padding-top: 200px;
 }
 .sidebar_section:not(:last-child)
 {

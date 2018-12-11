@@ -16,11 +16,8 @@
     </ul>
   </nav>
 </div>
-
-
   
   <!-- Home -->
-
   <div class="home">
     <div class="breadcrumbs_container">
       <div class="container">
@@ -28,7 +25,7 @@
           <div class="col">
             <div class="breadcrumbs">
               <ul>
-                <li><%= t".courses" %></li>
+                <li><%= link_to (t".courses"), trainer_courses_path%></li>
                 <li><%= @course.name %></li></li>
               </ul>
             </div>
@@ -98,26 +95,26 @@
             </div>
           </div>
         </div>
+        <!-- Course Sidebar -->
+        <div class="col-lg-4">
+          <div class="assign">
+              <div class="row">
+                <%= render partial: "trainer/table_list/table_trainees" %>
+              </div>
+              <div class="row">
+                <%= render partial: "trainer/assign_trainees/assign_trainees" %>
+              </div>
+              <div class="row">
+                <%= render partial: "trainer/table_list/table_trainers" %>
+              </div>
+              <div class="row">
+                <%= render partial: "trainer/assign_trainers/assign_trainers" %>
+              </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-<div class="col col-md-4">
-  <div class="container">
-    <div class="container-fluid">
-      <div class="row">
-        <%= render partial: "trainer/table_list/table_trainees" %>
-      </div>
-      <div class="row">
-        <%= render partial: "trainer/assign_trainees/assign_trainees" %>
-      </div>
-      <div class="row">
-        <%= render partial: "trainer/table_list/table_trainers" %>
-      </div>
-      <div class="row">
-        <%= render partial: "trainer/assign_trainers/assign_trainers" %>
-      </div>
-    </div>
-  </div>
-</div>
+
