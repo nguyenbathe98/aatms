@@ -13,7 +13,7 @@
         </div>
       </div>
     </div>
-  </div>      
+  </div>
 </div>
 <div class="course">
   <div class="container">
@@ -33,8 +33,8 @@
         <%= form_tag trainee_course_subject_path, method: :put, remote: true do |f| %>
         <% @tasks_of_subject.each do |trainee_task| %>
           <button type="button" style="width:250px; height:50px" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModalLong-<%= trainee_task.id%>">
-            <h6><%= trainee_task.task.name %></h6>
-          </button>   
+            <h6><%= trainee_task.course_subject_task.task_name %></h6>
+          </button>
           <%if trainee_task.pending? %>
             <%= check_box_tag "[trainee_task_ids][]", trainee_task.id %>
           <%end%>
@@ -43,10 +43,10 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <h2 class="modal-title" id="exampleModalLongTitle"><%= trainee_task.task.name %></h2>
+                  <h2 class="modal-title" id="exampleModalLongTitle"><%= trainee_task.course_subject_task.task_name %></h2>
                 </div>
                 <div class="modal-body">
-                  <h3><%= trainee_task.course_subject_task.task.instruction %></h3>
+                  <h3><%= trainee_task.course_subject_task.task_instruction %></h3>
                   <% if trainee_task.course_subject_task.course_subject.pending? %>
                   Status:
                   <% if trainee_task.finish? %>

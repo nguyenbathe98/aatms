@@ -19,7 +19,7 @@ class Trainee::SubjectsController < ApplicationController
     #   @trainee_task.finish!
     # end
     # redirect_to trainee_course_subject_path(current_course , @current_subject.subject)
-    respond_to do |format| 
+    respond_to do |format|
       task = TraineeTask.checked_task(params[:trainee_task_ids])
       task.update_status
       format.html { redirect_to trainee_course_subject_path }
