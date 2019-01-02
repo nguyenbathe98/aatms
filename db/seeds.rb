@@ -53,7 +53,9 @@ trainer_course1 = CourseTrainer.create course_id: course1.id,
 
 # Create Course Trainee
 course_trainee1 = CourseTrainee.create! course_id: course1.id,
-  trainee_id: trainee2.id
+  trainee_id: trainee2.id,
+  start_date: "15/08/2018", 
+  finish_date: "20/04/2019"
 
 # Create Subject
 subject1 = Subject.create! name: "Ruby",
@@ -79,19 +81,27 @@ course_subject4 = CourseSubject.create! course_id: course1.id,
 trainee_subject1 = TraineeSubject.create! trainee_id: trainee2.id,
   course_subject_id: course_subject1.id,
   course_trainee_id: course_trainee1.id,
-  subject_id: subject1.id
+  subject_id: subject1.id,
+  start_date: "15/08/2018", 
+  finish_date: "20/04/2019"
 trainee_subject2 = TraineeSubject.create! trainee_id: trainee2.id,
   course_subject_id: course_subject2.id,
   course_trainee_id: course_trainee1.id,
-  subject_id: subject2.id
+  subject_id: subject2.id,
+  start_date: "15/08/2018", 
+  finish_date: "20/04/2019"
 trainee_subject3 = TraineeSubject.create! trainee_id: trainee2.id,
   course_subject_id: course_subject3.id,
   course_trainee_id: course_trainee1.id,
-  subject_id: subject3.id
+  subject_id: subject3.id,
+  start_date: "15/08/2018", 
+  finish_date: "20/04/2019"
 trainee_subject4 = TraineeSubject.create! trainee_id: trainee2.id,
   course_subject_id: course_subject4.id,
   course_trainee_id: course_trainee1.id,
-  subject_id: subject4.id
+  subject_id: subject4.id,
+  start_date: "15/08/2018", 
+  finish_date: "20/04/2019"
 
 # Create Tasks
 

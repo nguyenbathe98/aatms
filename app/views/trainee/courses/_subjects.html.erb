@@ -1,13 +1,14 @@
-<% @course_of_trainee.trainee_subjects.each do |trainee_subject| %>
-  <h2><%= link_to trainee_subject.course_subject.subject.name, trainee_course_subject_path(@course, trainee_subject.subject) %>
+<% @subjects.each do |subject| %>
+  <h2><%= link_to subject.name, trainee_course_subject_path(@course, subject) %>
   </h2>
-    <p><%= truncate(trainee_subject.subject.instruction, length: 200) %></p>
-    <% if trainee_subject.course_subject.finish? %>
-    <%= t".status: "%><%= trainee_subject.course_subject.status %>
-      <% if trainee_subject.score.present? %>
-        <div class="score_in_student_view">Score:<%= trainee_subject.score %></div>
+    <p><%= truncate(subject.instruction, length: 200) %></p>
+    <% @course_of_trainee.trainee_subjects.each do |trainee_subject| %>
+      <% if trainee_subject.course_subject.finish? %>
+      <%= t".status: "%><%= trainee_subject.course_subject.status %>
+        <% if trainee_subject.score.present? %>
+          <div class="score_in_student_view">Score:<%= trainee_subject.score %></div>
+        <%end%>
       <%end%>
     <%end%>
   <hr>
-
 <% end %>

@@ -6,7 +6,7 @@
           <div class="breadcrumbs">
             <ul>
               <li><%= t".courses" %></li>
-              <li><%= @current_subject.course_subject.course.name %></li>
+              <li><%= link_to @current_subject.course_subject.course.name, trainee_course_path(@current_subject.course_subject.course) %></li>
               <li><%= @current_subject.subject.name %></li>
             </ul>
           </div>
@@ -15,76 +15,64 @@
     </div>
   </div>      
 </div>
-
-<div id="colorlib-hero" class="js-fullheight" data-section="home">
-    <div class="flexslider js-fullheight">
-      <ul class="slides">
-        <li>
-          <div class="overlay"></div>
-          <div class="container-fluid">
-            <div class="row">
-              <div class="js-fullheight slider-text">
-                <div class="slider-text-inner js-fullheight">
-                  <div class="desc">
-                    <h1><%= @current_subject.subject.name %></h1>
-                    <h2><%= raw @current_subject.subject.instruction %> </h2>
-                  </div>
+<div class="course">
+  <div class="container">
+    <div class="row">
+      <!-- Course -->
+      <div class="col-lg-8">
+        <div class="course_container">
+          <div class="course_title"><%= @current_subject.subject.name %></div>
+          <div class="course_image"><%= image_tag "course_1.jpg"%></div>
+          <div class="tab_panel_content">
+            <div class="tab_panel_text">
+              <p><%= @current_subject.subject.instruction %></p>
+            </div>
+          </div>
+          <hr>
+        </div>
+        <%= form_tag trainee_course_subject_path, method: :put, remote: true do |f| %>
+        <% @tasks_of_subject.each do |trainee_task| %>
+          <button type="button" style="width:250px; height:50px" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModalLong-<%= trainee_task.id%>">
+            <h6><%= trainee_task.task.name %></h6>
+          </button>   
+          <%if trainee_task.pending? %>
+            <%= check_box_tag "[trainee_task_ids][]", trainee_task.id %>
+          <%end%>
+          <div class="modal fade" id="exampleModalLong-<%= trainee_task.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h2 class="modal-title" id="exampleModalLongTitle"><%= trainee_task.task.name %></h2>
+                </div>
+                <div class="modal-body">
+                  <h3><%= trainee_task.course_subject_task.task.instruction %></h3>
+                  <% if trainee_task.course_subject_task.course_subject.pending? %>
+                  Status:
+                  <% if trainee_task.finish? %>
+                    <%= link_to trainee_task.status, trainee_course_subject_path(trainee_task.course_subject_task.course_subject.course_id, trainee_task.course_subject_task.task.subject_id, trainee_task.id),:method => :patch, class: "btn btn-primary" %>
+                  <% else %>
+                    <%= link_to trainee_task.status, trainee_course_subject_path(trainee_task.course_subject_task.course_subject.course_id, trainee_task.course_subject_task.task.subject_id, trainee_task.id),:method => :patch, class: "btn btn-danger" %>
+                  <% end %>
+                  <% end %>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
               </div>
             </div>
           </div>
-        </li>
-      </ul>
+          <% @finish_tasks.each do |finish| %>
+            <% if finish.id == trainee_task.id %>
+              <i class="fa fa-check-circle" style="font-size:25px;color:green"></i>
+            <% end %>
+          <% end %>
+        <%end%>
+        <br>
+        <%= button_tag "Update", class: "btn btn-primary btn-sm", remote: true %>
+        <%end%>
+      </div>
+      <%= render "side_bar" %>
     </div>
   </div>
-  <div class="colorlib-about" data-section="about">
-    <div class="colorlib-narrow-content">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft">
-            <div class="col-md-12">
-              <div class="about-desc">
-                <h2 class="colorlib-heading"><%= t(".list_default_task") %></h2>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <% @tasks_of_subject.each do |trainee_task| %>
-      <hr>
-      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal-<%= trainee_task.id%>">
-        <%= trainee_task.task.name %>
-      </button>
-      <div class="modal fade" id="myModal-<%= trainee_task.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h1 class="modal-title" id="myModalLabel"><%= trainee_task.course_subject_task.task.name %></h1>
-            </div>
-            <div class="modal-body">
-              <h3><%= trainee_task.course_subject_task.task.instruction %></h3>
-              <% if trainee_task.course_subject_task.course_subject.pending? %>
-              Status:
-              <% if trainee_task.finish? %>
-                <%= link_to trainee_task.status, trainee_course_subject_path(trainee_task.course_subject_task.course_subject.course_id, trainee_task.course_subject_task.task.subject_id, trainee_task.id),:method => :patch, class: "btn btn-primary" %>
-              <% else %>
-                <%= link_to trainee_task.status, trainee_course_subject_path(trainee_task.course_subject_task.course_subject.course_id, trainee_task.course_subject_task.task.subject_id, trainee_task.id),:method => :patch, class: "btn btn-danger" %>
-              <% end %>
-              <% end %>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <% @finish_tasks.each do |finish| %>
-        <% if finish.id == trainee_task.id %>
-          <i class="fa fa-check-circle" style="font-size:25px;color:green"></i>
-        <% end %>
-      <% end %>
-    <% end %>
-  </div>
-  <script src="/assets/main.js"></script>
+</div>

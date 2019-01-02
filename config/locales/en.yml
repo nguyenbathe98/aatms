@@ -3,8 +3,13 @@ en:
   all_course: "All courses"
   trainee:
     subjects:
-      show:
-        list_default_task: "List Task: "
+      side_bar:
+        time_default: "%d/%m/%Y"
+        start_date: "Start Date"
+        finish_date: "Finish Date"
+        tasks: "Tasks"
+        tasks_finished: "Tasks Finished"
+        feature: "Subject Feature"
     courses:
       show:
         courses: "Courses"
@@ -14,6 +19,11 @@ en:
         schedule: "Schedule:"
         home: "Home"
         member: " Members"
+      side_bar:
+        time_default: "%d/%m/%Y"
+        start_date: "Start Date"
+        finish_date: "Finish Date"
+        feature: "Course Feature"
   trainer:
     assign_trainees:
       assign_trainees:
@@ -61,8 +71,8 @@ en:
         list_task: "List Task: "
   layouts:
     header:
-      search: "Search..."
-      go: "Go"
+      text: "Searching here..."
+      search: "Search"
       awesome: "Awesome"
       academy: "Academy"
       home: "Home"

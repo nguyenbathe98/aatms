@@ -3,9 +3,9 @@ class Trainer::CoursesController < ApplicationController
   before_action :find_members_not_in_course , only: [:show]
   def index
     if !params[:q]
-      @courses = Course.all
+      @courses = current_trainer.courses
     else
-      @courses = Course.ransack(name_cont: params[:q]).result.limit(5)
+      @courses = current_trainer.courses.ransack(name_cont: params[:q]).result.limit(5)
       search_param = params[:q]
       @title_search = search_param.present? ? t("search_for", search_param: search_param) : t("all_course")
 
