@@ -3,7 +3,11 @@ class Trainer::CoursesController < ApplicationController
   before_action :find_members_not_in_course , only: [:show]
   def index
     if !params[:q]
-      @courses = current_trainer.courses
+      @courses = Course.all
+      @data = Hash.new
+      TraineeSubject.scores.keys.each do |score|
+        @data[score] = TraineeSubject.score_traniee(score).size 
+      end
     else
       @courses = current_trainer.courses.ransack(name_cont: params[:q]).result.limit(5)
       search_param = params[:q]
@@ -41,6 +45,11 @@ class Trainer::CoursesController < ApplicationController
 
   def show
     redirect_to root_url and return unless @course
+    @data = Hash.new
+    @score_of_course = TraineeSubject.trainee_subjects_in_course(@course)
+    TraineeSubject.scores.keys.each do |score|
+      @data[score] = @score_of_course.score_traniee(score).size 
+    end
   end
 
   private

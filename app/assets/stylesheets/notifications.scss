@@ -55,7 +55,7 @@ ul #notificationList
   top: 70px;
   margin-left: -253px;
   width: 300px;
-  z-index: 0;
+  z-index: 3;
   display: none;
 }
  
@@ -68,7 +68,7 @@ ul #notificationList
   height: 0;
   color: transparent;
   border: 10px solid black;
-  border-color: transparent transparent white;
+  border-color: transparent transparent #f0f0f0;
   margin-top: -20px;
   margin-left: 258px;
 }

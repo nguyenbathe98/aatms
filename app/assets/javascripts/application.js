@@ -19,6 +19,7 @@
 //= require jquery.flexslider-min
 //= require owl.carousel.min
 //= require jquery.countTo
+//= require charts
 //= require cable
 //= require main
 //= require ajax

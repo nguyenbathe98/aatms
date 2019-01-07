@@ -12,7 +12,7 @@ class CourseSubject < ApplicationRecord
       new_notification = Notification.create(event: "Supervisor #{self.status} subject #{self.subject.name}" , course_id: self.course.id)
       self.course.course_trainees.each do |course_trainee|
         new_notification_statuses = course_trainee.notification_statuses.build( course_trainee_id: course_trainee.id , notification_id: new_notification.id )
-        new_notification_statuses.save
+        course_trainee.notification_statuses << new_notification_statuses
       end
     end
   end
