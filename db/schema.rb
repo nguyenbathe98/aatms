@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_13_025128) do
+ActiveRecord::Schema.define(version: 2019_01_15_035816) do
 
   create_table "ckeditor_assets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "data_file_name", null: false
@@ -72,6 +72,15 @@ ActiveRecord::Schema.define(version: 2018_11_13_025128) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
+  end
+
+  create_table "identities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "trainee_id"
+    t.string "provider"
+    t.string "uid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["trainee_id"], name: "index_identities_on_trainee_id"
   end
 
   create_table "notification_statuses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -191,6 +200,7 @@ ActiveRecord::Schema.define(version: 2018_11_13_025128) do
   add_foreign_key "course_trainees", "trainees"
   add_foreign_key "course_trainers", "courses"
   add_foreign_key "course_trainers", "trainers"
+  add_foreign_key "identities", "trainees"
   add_foreign_key "notification_statuses", "course_trainees"
   add_foreign_key "notification_statuses", "notifications"
   add_foreign_key "notifications", "courses"

@@ -1,6 +1,5 @@
 class Course < ApplicationRecord
   after_update_commit :notify
-  after_update_commit :build_trainee_subjects, if: :course_training?
   mount_uploader :image, ImageUploader
   has_many :notifications , dependent: :destroy
   has_many :course_trainees, dependent: :destroy
@@ -14,15 +13,14 @@ class Course < ApplicationRecord
   enum status: {start: 0 ,training: 1, finish:2}
 
   scope :training_course, -> {where status: 1}
+  
   def build_trainee_subjects
-      ActiveRecord::Base.transaction do
-        self.course_trainees.each do |course_trainee|
-          self.course_subjects.each do |course_subject|
-            new_trainee_subjects = course_subject.trainee_subjects.build trainee_id: course_trainee.trainee.id, subject_id: course_subject.subject.id , course_trainee_id: course_trainee.id, course_subject_id: course_subject.id
-            new_trainee_subjects.save!
-          end
-        end
-      end  
+    self.course_trainees.each do |course_trainee|
+      self.course_subjects.each do |course_subject|
+        new_course_subjects = course_subject.trainee_subjects.build trainee_id: course_trainee.trainee.id, subject_id: course_subject.subject.id , course_trainee_id: course_trainee.id, course_subject_id: course_subject.id
+        course_subject.trainee_subjects << new_course_subjects 
+      end
+    end
   end
 
   private
@@ -31,12 +29,12 @@ class Course < ApplicationRecord
       new_notification = Notification.create(event: "Course #{self.name} was been #{self.status}" , course_id: self.id)
       self.course_trainees.each do |course_trainee|
         new_notification_statuses = course_trainee.notification_statuses.build( course_trainee_id: course_trainee.id , notification_id: new_notification.id )
-        new_notification_statuses.save
+        course_trainee.notification_statuses << new_notification_statuses
       end
     end
   end
 
-  def course_training?
-    self.training?
+  def course_start?
+    self.start?
   end
 end

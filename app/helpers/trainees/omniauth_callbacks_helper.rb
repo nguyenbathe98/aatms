@@ -1,0 +1,2 @@
+module Trainees::OmniauthCallbacksHelper
+end

@@ -4,7 +4,9 @@ class StaticPagesController < ApplicationController
   def home
   	if current_trainee
       current_course = CourseTrainee.find_by trainee_id: current_trainee.id
-	  	redirect_to trainee_course_path(current_course.course) if current_course.course.training?
+      if current_course
+	  	  redirect_to trainee_course_path(current_course.course) if current_course.course.training?
+      end
     elsif current_trainer
       redirect_to trainer_courses_path
   	end
