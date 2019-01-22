@@ -5,6 +5,9 @@ class CourseTrainee < ApplicationRecord
   belongs_to :course
   has_many :trainee_subjects, dependent: :destroy
   has_many :notification_statuses, dependent: :destroy
+  has_many :trainee_tests
+  has_many :subjects, through: :trainee_tests
+  accepts_nested_attributes_for :trainee_tests
 
   private
   def notify

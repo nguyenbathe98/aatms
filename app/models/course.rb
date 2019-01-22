@@ -11,8 +11,6 @@ class Course < ApplicationRecord
   has_many :notifications
   has_many :schedule
   enum status: {start: 0 ,training: 1, finish:2}
-
-  scope :training_course, -> {where status: 1}
   
   def build_trainee_subjects
     self.course_trainees.each do |course_trainee|

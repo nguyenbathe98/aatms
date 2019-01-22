@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   devise_for :trainees, :skip => [:registrations], controllers: { omniauth_callbacks: 'trainees/omniauth_callbacks' }
   devise_for :trainers, :skip => [:registrations]
+
+  resources :trainee_tests
+  post "/trainee_tests", to: "trainee_tests#create"
+
   match "/trainees/:id/finish_signup", to: "trainees#finish_signup", via: [:get, :patch], as: :finish_signup
   namespace :trainee do
   	resources :courses, only:[:show] do

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_28_040521) do
+ActiveRecord::Schema.define(version: 2019_02_08_141320) do
 
   create_table "ckeditor_assets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "data_file_name", null: false
@@ -130,6 +130,43 @@ ActiveRecord::Schema.define(version: 2019_01_28_040521) do
     t.index ["subject_id"], name: "index_tasks_on_subject_id"
   end
 
+  create_table "test_answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "test_question_id"
+    t.string "answer"
+    t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["test_question_id"], name: "index_test_answers_on_test_question_id"
+  end
+
+  create_table "test_questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "subject_id"
+    t.string "question"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["subject_id"], name: "index_test_questions_on_subject_id"
+  end
+
+  create_table "trainee_answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "trainee_question_id"
+    t.bigint "test_answer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "status"
+    t.string "answer"
+    t.index ["test_answer_id"], name: "index_trainee_answers_on_test_answer_id"
+    t.index ["trainee_question_id"], name: "index_trainee_answers_on_trainee_question_id"
+  end
+
+  create_table "trainee_questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "trainee_test_id"
+    t.bigint "test_question_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["test_question_id"], name: "index_trainee_questions_on_test_question_id"
+    t.index ["trainee_test_id"], name: "index_trainee_questions_on_trainee_test_id"
+  end
+
   create_table "trainee_subjects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "start_date"
     t.datetime "finish_date"
@@ -159,6 +196,16 @@ ActiveRecord::Schema.define(version: 2019_01_28_040521) do
     t.index ["task_id"], name: "index_trainee_tasks_on_task_id"
     t.index ["trainee_id"], name: "index_trainee_tasks_on_trainee_id"
     t.index ["trainee_subject_id"], name: "index_trainee_tasks_on_trainee_subject_id"
+  end
+
+  create_table "trainee_tests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "subject_id"
+    t.bigint "course_trainee_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "score"
+    t.index ["course_trainee_id"], name: "index_trainee_tests_on_course_trainee_id"
+    t.index ["subject_id"], name: "index_trainee_tests_on_subject_id"
   end
 
   create_table "trainees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -207,6 +254,12 @@ ActiveRecord::Schema.define(version: 2019_01_28_040521) do
   add_foreign_key "schedules", "courses"
   add_foreign_key "schedules", "subjects"
   add_foreign_key "tasks", "subjects"
+  add_foreign_key "test_answers", "test_questions"
+  add_foreign_key "test_questions", "subjects"
+  add_foreign_key "trainee_answers", "test_answers"
+  add_foreign_key "trainee_answers", "trainee_questions"
+  add_foreign_key "trainee_questions", "test_questions"
+  add_foreign_key "trainee_questions", "trainee_tests"
   add_foreign_key "trainee_subjects", "course_subjects"
   add_foreign_key "trainee_subjects", "course_trainees"
   add_foreign_key "trainee_subjects", "subjects"
@@ -215,4 +268,6 @@ ActiveRecord::Schema.define(version: 2019_01_28_040521) do
   add_foreign_key "trainee_tasks", "tasks"
   add_foreign_key "trainee_tasks", "trainee_subjects"
   add_foreign_key "trainee_tasks", "trainees"
+  add_foreign_key "trainee_tests", "course_trainees"
+  add_foreign_key "trainee_tests", "subjects"
 end
