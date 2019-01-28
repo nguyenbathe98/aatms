@@ -9,7 +9,7 @@ Devise.setup do |config|
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
   # config.secret_key = Figaro.env.secret_key
-  config.secret_key = 'f671c9422d8a8270bd727a13b9f244f19029f5aef8531c5a54c0c77dfb68d658cd792e954f99591960ac55ac0db0c004b8724d5523f60fe9bc9e4b319267da8e'
+  Figaro.env.secret_key
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
@@ -19,7 +19,8 @@ Devise.setup do |config|
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
-
+  config.omniauth :google_oauth2, Figaro.env.google_app_id , Figare.env.google_secret_id ,  {}
+  config.omniauth :facebook, Figaro.env.facebook_app_id , Figaro.env.facebook_secret, token_params: {}
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
 

@@ -1,0 +1,23 @@
+<div id="add-email" class="container">
+  <h1><%= t ".add_email"%></h1>
+  <%= form_for(current_trainee, as: "trainee", url: finish_signup_path(current_trainee),
+    html: { role: "form" , style:"margin-top: 100px"}) do |f| %>
+    <% if @show_errors && current_trainee.errors.any? %>
+      <div id="error_explanation">
+        <% current_trainee.errors.full_messages.each do |msg| %>
+          <%= msg %><br>
+        <% end %>
+      </div>
+    <% end %>
+    <div class="form-group">
+      <%= f.label :email %>
+      <div class="controls">
+        <%= f.text_field :email, autofocus: true, class: "form-control input-lg", placeholder: "Example: email@me.com" %>
+        <p class="help-block">Please confirm your email address. No spam.</p>
+      </div>
+    </div>
+    <div class="actions">
+      <%= f.submit "Continue", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
