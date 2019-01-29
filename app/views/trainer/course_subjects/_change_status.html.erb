@@ -1,9 +1,9 @@
-<div style="float:right; margin-top: -20px">
+<div style="float:right; margin-top: -20px" class="btn_change_status_subject">
   <% if course_subject.finish? %>
     <button type="button" class="btn btn-danger"><%= course_subject.status %>ED </button>
-        <i class="fa fa-check-circle" style="font-size:25px;color:green"></i> 
+        <i class="fa fa-check-circle" style="font-size:25px;color:green"></i>
 
-    </br>    
+    </br>
     <%= link_to "Rate students" , trainer_course_subject_rate_students_path(course_subject.course, course_subject.subject), class: "btn btn-success" %>
   <% else %>
     <%= form_for [:trainer,@course] , url: trainer_course_course_subject_path(@course), remote: true do |f|%>

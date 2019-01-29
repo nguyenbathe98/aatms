@@ -10,13 +10,13 @@
           <!-- Feature -->
           <div class="feature d-flex flex-row align-items-center justify-content-start">
             <div class="feature_title"><i class="fa fa-calendar-check-o" aria-hidden="true"></i><span><%= t".start_date" %></span></div>
-            <div class="feature_text ml-auto"><%= @current_subject.start_date.strftime(t(".time_default")) %></div>
+            <div class="feature_text ml-auto"><%#= @current_subject.start_date.strftime(t(".time_default")) %></div>
           </div>
           <!-- Feature -->
           <div class="feature d-flex flex-row align-items-center justify-content-start">
             <div class="feature_title"><i class="fa fa-calendar-times-o" aria-hidden="true"></i><span><%= t".finish_date" %></span></div>
-            <div class="feature_text ml-auto"><%= @current_subject.finish_date.strftime(t(".time_default")) %></div>
-          </div>                             
+            <div class="feature_text ml-auto"><%#= @current_subject.finish_date.strftime(t(".time_default")) %></div>
+          </div>
           <!-- Feature -->
           <div class="feature d-flex flex-row align-items-center justify-content-start">
             <div class="feature_title"><i class="fa fa-files-o" aria-hidden="true"></i><span><%= t".tasks" %></span></div>

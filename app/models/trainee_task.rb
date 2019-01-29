@@ -18,4 +18,13 @@ class TraineeTask < ApplicationRecord
       end
     end
   end
+
+  def self.build_trainee_tasks(course_subject)
+    course_subject.trainee_subjects.each do |trainee_subject|
+      course_subject.course_subject_tasks.each do |course_subject_task|
+        new_trainee_task = course_subject_task.trainee_tasks.build trainee_id: trainee_subject.trainee.id , course_subject_task_id: course_subject_task.id ,trainee_subject_id: trainee_subject.id, task_id: course_subject_task.task.id
+        course_subject_task.trainee_tasks << new_trainee_task
+      end
+    end
+  end
 end
