@@ -19,7 +19,7 @@ Devise.setup do |config|
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
-  config.omniauth :google_oauth2, Figaro.env.google_app_id , Figare.env.google_secret_id ,  {}
+  config.omniauth :google_oauth2, Figaro.env.google_app_id , Figaro.env.google_secret_id ,  {}
   config.omniauth :facebook, Figaro.env.facebook_app_id , Figaro.env.facebook_secret, token_params: {}
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
