@@ -13,7 +13,7 @@
         </div>
       </div>
     </div>
-  </div>      
+  </div>
 </div>
 
 <div id="colorlib-hero" class="js-fullheight" data-section="home">
@@ -51,27 +51,58 @@
         </div>
       </div>
     </div>
-    <% @course_subject.subject.tasks.each do |cst| %>
-        <hr>
-        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal-<%= cst.id%>">
-          <%= cst.name %>
-        </button>
-        <div class="modal fade" id="myModal-<%= cst.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h1 class="modal-title" id="myModalLabel"><%= cst.name %></h1>
-              </div>
-              <div class="modal-body">
-                <h3><%= cst.instruction %></h3>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-              </div>
+    <% @course_subject.course_subject_tasks.each do |t| %>
+      <hr>
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal-<%= t.id%>">
+        <%= t.task_name %>
+      </button>
+      <div class="modal fade" id="myModal-<%= t.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h1 class="modal-title" id="myModalLabel"><%= t.task_name %></h1>
+            </div>
+            <div class="modal-body">
+              <h3><%= t.task_instruction %></h3>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
             </div>
           </div>
         </div>
-      <% end %>
+      </div>
+    <% end %>
+    <div>
+      <hr>
+      <button data-toggle="modal" data-target="#myModal-0" class="btn btn-primary btn-lg" hodel>
+        <i class="fa fa-plus-square fa-2x">
+        </i>
+      </button>
+      <div class="modal fade" id="myModal-0" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h1 class="modal-title" id="myModalLabel">Thêm mới task</h1>
+            </div>
+            <div class="modal-body">
+              <%= form_for CourseSubjectTask.new, url: trainer_course_subject_add_task_path(@course_subject.course, @course_subject.subject), method: :patch do |f| %>
+                <%= f.label :task_name %></br>
+                <%= f.text_area :task_name, class:"form-control" %></br>
+                <%= f.label :task_instruction %></br>
+                <%= f.text_area :task_instruction, class:"form-control" %>
+                <%= f.hidden_field :course_subject_id, value: @course_subject.id %>
+                <%= f.submit "Add" %>
+                <%# byebug %>
+              <% end %>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     </div>
 <script src="/assets/main.js"></script>

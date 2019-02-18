@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   	resources :courses do
       resources :subjects do
         resources :rate_students
+        resource :add_task, only:[:update]
       end
       resources :assign_trainees
       resources :assign_trainers
