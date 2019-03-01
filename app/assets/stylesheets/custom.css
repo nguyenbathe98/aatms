@@ -241,3 +241,10 @@ td {
 .btn_change_status_subject {
   z-index: 3;
 }
+.footer_background{
+	display: block;
+	margin-top: 200px;
+}
+.header_container{
+	display: block;
+}

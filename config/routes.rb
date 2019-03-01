@@ -1,7 +1,9 @@
+require 'sidekiq/web'
 Rails.application.routes.draw do
   mount ActionCable.server => '/cable'
   mount Ckeditor::Engine => '/ckeditor'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  mount Sidekiq::Web, at: '/sidekiq'
   root 'static_pages#home'
   devise_for :trainees, :skip => [:registrations], controllers: { omniauth_callbacks: 'trainees/omniauth_callbacks' }
   devise_for :trainers, :skip => [:registrations]

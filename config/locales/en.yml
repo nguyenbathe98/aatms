@@ -1,4 +1,7 @@
 en:
+  workers:
+    hard_worker:
+      end_course_notify: "This Course will be end after 5 days"
   search_for: "Search for: %{search_param}"
   all_course: "All courses"
   trainee_tests:

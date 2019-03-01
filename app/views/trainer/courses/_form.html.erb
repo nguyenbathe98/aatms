@@ -1,15 +1,23 @@
 <%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.js", 'data-turbolinks-track' => true %>
-
-<%= form_for([:trainer,@course]) do |f| %>
+<%= form_for([:trainer,@course],:html => { :style => 'margin-top: 100px;' }) do |f| %>
+<h1><%= t".create_and_modify_course"%></h1>
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
-  </div>
+  </div></br>
+  <div class="field">
+    <%= f.label :start_date %><br>
+    <%= f.date_field :start_date%>
+  </div></br>
+  <div class="field">
+    <%= f.label :finish_date %><br>
+    <%= f.date_field :finish_date %>
+  </div></br>
   <div class="field">
     <%= f.label :description %><br>
     <%= f.cktext_area :description, class: "ckeditor" %>
-  </div>
-
+  </div></br>
+  <h2><%= t ".chose_subjects"%></h2>
     <div class="field">
            <%= f.collection_check_boxes :subject_ids, Subject.all, :id, :name do |b| %>
           <div class="collection-check-box">

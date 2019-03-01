@@ -6,6 +6,9 @@ class Trainer::AssignTraineesController < ApplicationController
 
   def update
     @course.trainee_ids += params[:trainees][:id]
+    params[:trainees][:id].each do |trainee_id|
+      HardWorker.perform_at(@course.finish_date-5.days,@course.id, trainee_id)
+    end
     redirect_to trainer_course_path(@course)
   end
 

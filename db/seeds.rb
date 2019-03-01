@@ -360,87 +360,87 @@ test_question10 = TestQuestion.create! subject_id: subject1.id,
 
 # Test Answer
 
-test_answer1 = TestAnswer.create! answer: "nil", test_question_id: test_question1.id, status: "1"
+test_answer1 = TestAnswer.create! answer: "nil", test_question_id: test_question1.id, status: 1
 
-test_answer2 = TestAnswer.create! answer: "0", test_question_id: test_question1.id, status: "0"
+test_answer2 = TestAnswer.create! answer: "0", test_question_id: test_question1.id, status: 0
 
-test_answer3 = TestAnswer.create! answer: "1", test_question_id: test_question1.id, status: "0"
+test_answer3 = TestAnswer.create! answer: "1", test_question_id: test_question1.id, status: 0
 
-test_answer4 = TestAnswer.create! answer: "Any Errors", test_question_id: test_question1.id, status: "0"
+test_answer4 = TestAnswer.create! answer: "Any Errors", test_question_id: test_question1.id, status: 0
 
-test_answer5 = TestAnswer.create! answer: "6", test_question_id: test_question2.id, status: "1"
+test_answer5 = TestAnswer.create! answer: "6", test_question_id: test_question2.id, status: 1
 
-test_answer6 = TestAnswer.create! answer: "true", test_question_id: test_question2.id, status: "0"
+test_answer6 = TestAnswer.create! answer: "true", test_question_id: test_question2.id, status: 0
 
-test_answer7 = TestAnswer.create! answer: "0", test_question_id: test_question2.id, status: "0"
+test_answer7 = TestAnswer.create! answer: "0", test_question_id: test_question2.id, status: 0
 
-test_answer8 = TestAnswer.create! answer: "5", test_question_id: test_question2.id, status: "0"
+test_answer8 = TestAnswer.create! answer: "5", test_question_id: test_question2.id, status: 0
 
-test_answer9 = TestAnswer.create! answer: "Range", test_question_id: test_question3.id, status: "1"
+test_answer9 = TestAnswer.create! answer: "Range", test_question_id: test_question3.id, status: 1
 
-test_answer10 = TestAnswer.create! answer: "Box", test_question_id: test_question3.id, status: "0"
+test_answer10 = TestAnswer.create! answer: "Box", test_question_id: test_question3.id, status: 0
 
-test_answer11 = TestAnswer.create! answer: "Package", test_question_id: test_question3.id, status: "0"
+test_answer11 = TestAnswer.create! answer: "Package", test_question_id: test_question3.id, status: 0
 
-test_answer12 = TestAnswer.create! answer: "Median", test_question_id: test_question3.id, status: "0"
+test_answer12 = TestAnswer.create! answer: "Median", test_question_id: test_question3.id, status: 0
 
-test_answer13 = TestAnswer.create! answer: "[4, 6, 8]", test_question_id: test_question4.id, status: "1"
+test_answer13 = TestAnswer.create! answer: "[4, 6, 8]", test_question_id: test_question4.id, status: 1
 
-test_answer14 = TestAnswer.create! answer: "{1 => 4, 2 => 6, 3 => 8}", test_question_id: test_question4.id, status: "0"
+test_answer14 = TestAnswer.create! answer: "{1 => 4, 2 => 6, 3 => 8}", test_question_id: test_question4.id, status: 0
 
-test_answer15 = TestAnswer.create! answer: "{1 => 6, 2 => 8, 3 => 10}", test_question_id: test_question4.id, status: "0"
+test_answer15 = TestAnswer.create! answer: "{1 => 6, 2 => 8, 3 => 10}", test_question_id: test_question4.id, status: 0
 
-test_answer16 = TestAnswer.create! answer: "[6, 8, 10]", test_question_id: test_question4.id, status: "0"
+test_answer16 = TestAnswer.create! answer: "[6, 8, 10]", test_question_id: test_question4.id, status: 0
 
-test_answer17 = TestAnswer.create! answer: "[1, 3, 5, 7, 9]", test_question_id: test_question5.id, status: "1"
+test_answer17 = TestAnswer.create! answer: "[1, 3, 5, 7, 9]", test_question_id: test_question5.id, status: 1
 
-test_answer18 = TestAnswer.create! answer: "[1, 3, 5, 7]", test_question_id: test_question5.id, status: "0"
+test_answer18 = TestAnswer.create! answer: "[1, 3, 5, 7]", test_question_id: test_question5.id, status: 0
 
-test_answer19 = TestAnswer.create! answer: "[0, 2, 4, 6, 8]", test_question_id: test_question5.id, status: "0"
+test_answer19 = TestAnswer.create! answer: "[0, 2, 4, 6, 8]", test_question_id: test_question5.id, status: 0
 
-test_answer20 = TestAnswer.create! answer: "[0, 2, 4, 6]", test_question_id: test_question5.id, status: "0"
+test_answer20 = TestAnswer.create! answer: "[0, 2, 4, 6]", test_question_id: test_question5.id, status: 0
 
-test_answer21 = TestAnswer.create! answer: "True", test_question_id: test_question6.id, status: "1"
+test_answer21 = TestAnswer.create! answer: "True", test_question_id: test_question6.id, status: 1
 
-test_answer22 = TestAnswer.create! answer: "False", test_question_id: test_question6.id, status: "0"
+test_answer22 = TestAnswer.create! answer: "False", test_question_id: test_question6.id, status: 0
 
-test_answer23 = TestAnswer.create! answer: "Errors", test_question_id: test_question6.id, status: "0"
+test_answer23 = TestAnswer.create! answer: "Errors", test_question_id: test_question6.id, status: 0
 
-test_answer24 = TestAnswer.create! answer: "Nothing", test_question_id: test_question6.id, status: "0"
+test_answer24 = TestAnswer.create! answer: "Nothing", test_question_id: test_question6.id, status: 0
 
-test_answer25 = TestAnswer.create! answer: "Scope of instance variables is limited to the class in which the variable is instantiated", test_question_id: test_question7.id, status: "1"
+test_answer25 = TestAnswer.create! answer: "Scope of instance variables is limited to the class in which the variable is instantiated", test_question_id: test_question7.id, status: 1
 
-test_answer26 = TestAnswer.create! answer: "Instance variables can be used as constants in a program", test_question_id: test_question7.id, status: "0"
+test_answer26 = TestAnswer.create! answer: "Instance variables can be used as constants in a program", test_question_id: test_question7.id, status: 0
 
-test_answer27 = TestAnswer.create! answer: "Scope of the instance variable is restricted to the object self refers to", test_question_id: test_question7.id, status: "0"
+test_answer27 = TestAnswer.create! answer: "Scope of the instance variable is restricted to the object self refers to", test_question_id: test_question7.id, status: 0
 
-test_answer28 = TestAnswer.create! answer: "Instance variables are always public variables", test_question_id: test_question7.id, status: "0"
+test_answer28 = TestAnswer.create! answer: "Instance variables are always public variables", test_question_id: test_question7.id, status: 0
 
-test_answer29 = TestAnswer.create! answer: "the same thing as false.", test_question_id: test_question8.id, status: "1"
+test_answer29 = TestAnswer.create! answer: "the same thing as false.", test_question_id: test_question8.id, status: 1
 
-test_answer30 = TestAnswer.create! answer: "an actual object", test_question_id: test_question8.id, status: "0"
+test_answer30 = TestAnswer.create! answer: "an actual object", test_question_id: test_question8.id, status: 0
 
-test_answer31 = TestAnswer.create! answer: "a method", test_question_id: test_question8.id, status: "0"
+test_answer31 = TestAnswer.create! answer: "a method", test_question_id: test_question8.id, status: 0
 
-test_answer32 = TestAnswer.create! answer: "equal to 0", test_question_id: test_question8.id, status: "0"
+test_answer32 = TestAnswer.create! answer: "equal to 0", test_question_id: test_question8.id, status: 0
 
-test_answer33 = TestAnswer.create! answer: "@my_variable", test_question_id: test_question9.id, status: "1"
+test_answer33 = TestAnswer.create! answer: "@my_variable", test_question_id: test_question9.id, status: 1
 
-test_answer34 = TestAnswer.create! answer: "my_variable", test_question_id: test_question9.id, status: "0"
+test_answer34 = TestAnswer.create! answer: "my_variable", test_question_id: test_question9.id, status: 0
 
-test_answer35 = TestAnswer.create! answer: "MY_VARIABLE", test_question_id: test_question9.id, status: "0"
+test_answer35 = TestAnswer.create! answer: "MY_VARIABLE", test_question_id: test_question9.id, status: 0
 
-test_answer36 = TestAnswer.create! answer: "$my_variable", test_question_id: test_question9.id, status: "0"
+test_answer36 = TestAnswer.create! answer: "$my_variable", test_question_id: test_question9.id, status: 0
 
-test_answer37 = TestAnswer.create! answer: "@@my_variable", test_question_id: test_question9.id, status: "0"
+test_answer37 = TestAnswer.create! answer: "@@my_variable", test_question_id: test_question9.id, status: 0
 
-test_answer38 = TestAnswer.create! answer: "Local variable", test_question_id: test_question10.id, status: "1"
+test_answer38 = TestAnswer.create! answer: "Local variable", test_question_id: test_question10.id, status: 1
 
-test_answer39 = TestAnswer.create! answer: "Global variable", test_question_id: test_question10.id, status: "0"
+test_answer39 = TestAnswer.create! answer: "Global variable", test_question_id: test_question10.id, status: 0
 
-test_answer40 = TestAnswer.create! answer: "Instance variable", test_question_id: test_question10.id, status: "0"
+test_answer40 = TestAnswer.create! answer: "Instance variable", test_question_id: test_question10.id, status: 0
 
-test_answer41 = TestAnswer.create! answer: "Class variable", test_question_id: test_question10.id, status: "0"
+test_answer41 = TestAnswer.create! answer: "Class variable", test_question_id: test_question10.id, status: 0
  
  # Trainee Questions
 

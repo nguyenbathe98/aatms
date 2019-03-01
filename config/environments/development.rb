@@ -10,7 +10,17 @@ Rails.application.configure do
 
   # Do not eager load code on boot.
   config.eager_load = false
-
+  # Mailer
+  config.action_mailer.default_url_options = {host: ENV["HOST"]}
+  config.action_mailer.smtp_settings = {
+    address: ENV["ADDRESS"],
+    port: ENV["PORT_MAILER"],
+    authentication: ENV["AUTHENTICAION"],
+    user_name: ENV["EMAIL_USERNAME"],
+    password: ENV["EMAIL_PASSWORD"],
+    domain: ENV["DOMAIN"],
+    enable_starttls_auto: true
+  }
   # Show full error reports.
   config.consider_all_requests_local = true
 
