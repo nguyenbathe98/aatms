@@ -25,9 +25,4 @@ class Trainee::SubjectsController < ApplicationController
       format.html { redirect_to trainee_course_subject_path }
     end
   end
-
-  private
-  def tranee_task_params
-    params.require(:tasks_of_subject).permit(:task_tranee_id)
-  end
 end
