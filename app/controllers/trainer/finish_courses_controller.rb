@@ -1,6 +1,6 @@
 class Trainer::FinishCoursesController < ApplicationController
   def update
-    course = Course.find_by id: params[:course_id]
+    course = Course.find params[:course_id]
     if course.start?
       course.build_trainee_subjects
       course.status = 1

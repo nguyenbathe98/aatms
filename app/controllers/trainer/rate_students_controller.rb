@@ -18,6 +18,6 @@ class Trainer::RateStudentsController < ApplicationController
   end
   def find_course_subject
     @current_subject = Subject.find_by id: params[:subject_id]
-    @current_course = Course.find_by id: params[:course_id]
+    @current_course = Course.find(params[:course_id])
   end
 end

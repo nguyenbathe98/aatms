@@ -17,7 +17,7 @@ class Trainer::AssignTraineesController < ApplicationController
 
   private
   def find_course
-    @course = Course.find_by id: params[:id]
+    @course = Course.friendly.find(params[:course_id])
   end
 
 end

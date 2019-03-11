@@ -1,5 +1,5 @@
 class Trainer::CoursesController < ApplicationController
-  before_action :find_course
+  before_action :find_course, only: [:show, :edit, :update]
   before_action :find_members_not_in_course , only: [:show]
   def index
     if !params[:q]
@@ -58,7 +58,7 @@ class Trainer::CoursesController < ApplicationController
   end
 
   def find_course
-    @course = Course.find_by id: params[:id]
+    @course = Course.friendly.find(params[:id])
   end
 
   def find_members_not_in_course

@@ -3,7 +3,7 @@ class Trainer::AddTasksController < ApplicationController
   def update
     @course_subject_task = CourseSubjectTask.new(add_task_params)
     @course_subject_task.save
-    redirect_to trainer_course_subject_path(params[:course_id], params[:subject_id])
+    redirect_to trainer_course_subject_path(course.id, params[:subject_id])
   end
 
   private
@@ -13,6 +13,7 @@ class Trainer::AddTasksController < ApplicationController
   end
 
   def find_course_subject
-    @course_subject = CourseSubject.find_by course_id: params[:course_id], subject_id: params[:subject_id]
+    @course = Course.find params[:course_id]
+    @course_subject = CourseSubject.find_by course_id: @course.id, subject_id: params[:subject_id]
   end
 end
