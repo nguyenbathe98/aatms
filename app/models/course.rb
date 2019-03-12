@@ -1,4 +1,6 @@
 class Course < ApplicationRecord
+  extend FriendlyId
+  friendly_id :name, use: [:slugged, :finders]
   after_update_commit :notify
   mount_uploader :image, ImageUploader
   has_many :notifications , dependent: :destroy

@@ -32,7 +32,6 @@
 config/settings.local.yml
 config/settings/*.local.yml
 config/environments/*.local.yml
-
 #Test
 test/*
 .idea/*
@@ -51,3 +50,4 @@ config/enviroments/*.local.yml
 /node_modules
 yarn-debug.log*
 .yarn-integrity
+

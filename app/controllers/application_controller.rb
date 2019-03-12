@@ -29,11 +29,11 @@ class ApplicationController < ActionController::Base
     def notifications
       if current_trainer
         course_params = params[:course_id] ? params[:course_id] : params[:id]
-        current_course = Course.find_by id: course_params
+        current_course = Course.friendly.find(course_params)
         @notifications = current_course.notifications.reverse
       elsif current_trainee
         course_params = params[:course_id] ? params[:course_id] : params[:id]
-        @current_course = Course.find_by id: course_params
+        @current_course = Course.friendly.find(course_params)
         @notifications = @current_course.notifications.reverse
         current_course_trainee = CourseTrainee.find_by course_id: @current_course.id , trainee_id: current_trainee.id
         @notifications_unread = current_course_trainee.notification_statuses.unread

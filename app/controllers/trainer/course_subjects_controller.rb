@@ -19,6 +19,6 @@ class Trainer::CourseSubjectsController < ApplicationController
 
   private
   def find_course
-    @course = Course.find_by id: params[:id]
+    @course = Course.find params[:id]
   end
 end
