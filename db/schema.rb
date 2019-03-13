@@ -72,8 +72,6 @@ ActiveRecord::Schema.define(version: 2019_03_11_035341) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
-    t.datetime "start_date"
-    t.datetime "finish_date"
     t.string "slug"
     t.index ["slug"], name: "index_courses_on_slug", unique: true
   end

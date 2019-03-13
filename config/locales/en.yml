@@ -19,6 +19,7 @@ en:
       test: "All Tests"
       wrong: "Wrong Answer"
       correct: "Correct Answer"
+      done: "Done"
   trainee:
     subjects:
       side_bar:

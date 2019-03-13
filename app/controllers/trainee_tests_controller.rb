@@ -7,6 +7,10 @@ class TraineeTestsController < ApplicationController
     @subject_tests = @course_trainee.course.subjects
   end
 
+  def show
+    @test = TraineeTest.find_by params[:id]
+  end
+
   def create
     respond_to do |format|
       @questions = TestQuestion.questions_of_subjects(params[:trainee_test][:subject_id])
@@ -24,6 +28,19 @@ class TraineeTestsController < ApplicationController
       end
       @new_test.save
       format.html {redirect_to trainee_tests_path}
+    end
+  end
+
+  def update
+    respond_to do |format|
+      @test = TraineeTest.find_by params[:id]
+      @answers = TraineeAnswer.answer_of_trainee(params[:trainee_answer_ids])
+      @answers.each do |answer|
+        answer.update_attributes(status: answer.test_answer.status)
+      end
+      test_score = @answers.score_of_trainee.count
+      @test.update_attributes(score: test_score)
+      format.html {redirect_to trainee_test_path(@test)}
     end
   end
 

@@ -1,0 +1,11 @@
+<link rel="stylesheet" type="text/css" href="timer.css">
+
+<div class="col-lg-3">
+  <% if @test.score.blank? %>
+    <div class="timer" id="timer"></div>
+  <% elsif @test.score.present? %>
+    <div class="timer" style="font-size: 27px"><%= t".Completed !!!" %></div>
+  <% end %>
+</div>
+
+<%= javascript_include_tag("timer.js") %>

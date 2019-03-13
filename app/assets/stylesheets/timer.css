@@ -1,0 +1,18 @@
+.timer {
+  margin: 30px auto; 
+  width: 260px;
+  padding: 20px;
+  font-family: verdana;
+  font-size: 50px;
+  background: #b5b8b5;
+  color: #1e2434;
+  border-radius: 10px;
+  font-weight: bold;
+  text-align: center
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  padding-top: 120px;
+}
