@@ -8,6 +8,7 @@ en:
       time: "%H:%M, %d %B %Y"
       created_at: "Created At"
       test: "Test"
+      completed: "Completed"
       duration: "Duration"
       questions: "Questions"
       spent_time: "Spent Time"
