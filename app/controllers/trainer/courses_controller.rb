@@ -3,7 +3,12 @@ class Trainer::CoursesController < ApplicationController
   before_action :find_members_not_in_course , only: [:show]
   def index
     if !params[:q]
-      @courses = Course.all
+      @courses = fetch_from_redis
+      byebug
+      respond_to do |format|
+        format.html {}
+        format.json { render json: @courses, status: :ok }
+      end
       @data = Hash.new
       TraineeSubject.scores.keys.each do |score|
         @data[score] = TraineeSubject.score_traniee(score).size 
@@ -65,4 +70,15 @@ class Trainer::CoursesController < ApplicationController
     @find_trainees = Trainee.trainee_data(@course)
     @find_trainers = Trainer.trainer_data(@course)
   end
+
+  def fetch_from_redis
+      courses = $redis.get "courses"
+
+      if courses.nil?
+        courses = Course.all.to_json
+        $redis.set "courses", courses
+        $redis.expire("categories",3.hour.to_i)
+      end
+      JSON.load courses
+    end
 end

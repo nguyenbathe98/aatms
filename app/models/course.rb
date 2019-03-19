@@ -1,5 +1,6 @@
 class Course < ApplicationRecord
   extend FriendlyId
+  after_save :clear_cache
   friendly_id :name, use: [:slugged, :finders]
   after_update_commit :notify
   mount_uploader :image, ImageUploader
@@ -36,5 +37,9 @@ class Course < ApplicationRecord
 
   def course_start?
     self.start?
+  end
+
+  def clear_cache
+    $redis.del "courses"
   end
 end
