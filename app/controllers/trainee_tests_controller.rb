@@ -34,12 +34,7 @@ class TraineeTestsController < ApplicationController
   def update
     respond_to do |format|
       @test = TraineeTest.find_by params[:id]
-      @answers = TraineeAnswer.answer_of_trainee(params[:trainee_answer_ids])
-      @answers.each do |answer|
-        answer.update_attributes(status: answer.test_answer.status)
-      end
-      test_score = @answers.score_of_trainee.count
-      @test.update_attributes(score: test_score)
+      @test.update_test(params[:trainee_answer_ids])
       format.html {redirect_to trainee_test_path(@test)}
     end
   end

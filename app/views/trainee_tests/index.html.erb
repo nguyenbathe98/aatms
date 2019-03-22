@@ -47,9 +47,9 @@
                   <td><%= trainee_test.score %></td>
                   <td>
                     <% if trainee_test.score.blank? %>
-                      <%= link_to (t".test"), trainee_test_path(trainee_test), class: "btn-primary btn-sm" %>
+                      <%= link_to (t".test"), trainee_test_path(trainee_test), class: "btn-primary btn-lg" %>
                     <% elsif trainee_test.score.present? %>
-                      <%= link_to (t".test"), trainee_test_path(trainee_test), class: "btn-success btn-sm" %>
+                      <%= link_to (t".completed"), trainee_test_path(trainee_test), class: "btn-success btn-lg" %>
                     <%end%>
                   </td>
                 </tr>
