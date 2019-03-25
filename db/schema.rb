@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2019_03_11_035341) do
 
-  create_table "ckeditor_assets", options: "ENGINE=MyISAM DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "ckeditor_assets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "data_file_name", null: false
     t.string "data_content_type"
     t.integer "data_file_size"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2019_03_11_035341) do
     t.index ["type"], name: "index_ckeditor_assets_on_type"
   end
 
-  create_table "course_subject_tasks", options: "ENGINE=MyISAM DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "course_subject_tasks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "course_subject_id"
     t.bigint "task_id"
     t.string "task_name"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2019_03_11_035341) do
     t.index ["task_id"], name: "index_course_subject_tasks_on_task_id"
   end
 
-  create_table "course_subjects", options: "ENGINE=MyISAM DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "course_subjects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "course_id"
     t.bigint "subject_id"
     t.integer "status", default: 0, null: false
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2019_03_11_035341) do
     t.index ["subject_id"], name: "index_course_subjects_on_subject_id"
   end
 
-  create_table "course_trainees", options: "ENGINE=MyISAM DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "course_trainees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "trainee_id"
     t.bigint "course_id"
     t.datetime "start_date"
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2019_03_11_035341) do
     t.index ["trainee_id"], name: "index_course_trainees_on_trainee_id"
   end
 
-  create_table "course_trainers", options: "ENGINE=MyISAM DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "course_trainers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "trainer_id"
     t.bigint "course_id"
     t.datetime "created_at", null: false
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 2019_03_11_035341) do
     t.index ["trainer_id"], name: "index_course_trainers_on_trainer_id"
   end
 
-  create_table "courses", options: "ENGINE=MyISAM DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "courses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.integer "status", default: 0, null: false
@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 2019_03_11_035341) do
     t.index ["slug"], name: "index_courses_on_slug", unique: true
   end
 
-  create_table "friendly_id_slugs", options: "ENGINE=MyISAM DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "friendly_id_slugs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
     t.string "sluggable_type", limit: 50
@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(version: 2019_03_11_035341) do
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
-  create_table "identities", options: "ENGINE=MyISAM DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "identities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "trainee_id"
     t.string "provider"
     t.string "uid"
@@ -96,7 +96,7 @@ ActiveRecord::Schema.define(version: 2019_03_11_035341) do
     t.index ["trainee_id"], name: "index_identities_on_trainee_id"
   end
 
-  create_table "notification_statuses", options: "ENGINE=MyISAM DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "notification_statuses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "status", default: 0, null: false
     t.bigint "notification_id"
     t.bigint "course_trainee_id"
@@ -106,7 +106,7 @@ ActiveRecord::Schema.define(version: 2019_03_11_035341) do
     t.index ["notification_id"], name: "index_notification_statuses_on_notification_id"
   end
 
-  create_table "notifications", options: "ENGINE=MyISAM DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "notifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "event"
     t.bigint "course_id"
     t.datetime "created_at", null: false
@@ -114,7 +114,7 @@ ActiveRecord::Schema.define(version: 2019_03_11_035341) do
     t.index ["course_id"], name: "index_notifications_on_course_id"
   end
 
-  create_table "schedules", options: "ENGINE=MyISAM DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "schedules", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "date"
     t.string "shift"
     t.string "trainer_name"
@@ -127,14 +127,14 @@ ActiveRecord::Schema.define(version: 2019_03_11_035341) do
     t.index ["subject_id"], name: "index_schedules_on_subject_id"
   end
 
-  create_table "subjects", options: "ENGINE=MyISAM DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "subjects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "instruction"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "tasks", options: "ENGINE=MyISAM DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "tasks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.bigint "subject_id"
     t.datetime "created_at", null: false
@@ -143,7 +143,7 @@ ActiveRecord::Schema.define(version: 2019_03_11_035341) do
     t.index ["subject_id"], name: "index_tasks_on_subject_id"
   end
 
-  create_table "test_answers", options: "ENGINE=MyISAM DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "test_answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "test_question_id"
     t.string "answer"
     t.integer "status"
@@ -152,7 +152,7 @@ ActiveRecord::Schema.define(version: 2019_03_11_035341) do
     t.index ["test_question_id"], name: "index_test_answers_on_test_question_id"
   end
 
-  create_table "test_questions", options: "ENGINE=MyISAM DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "test_questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "subject_id"
     t.string "question"
     t.datetime "created_at", null: false
@@ -160,7 +160,7 @@ ActiveRecord::Schema.define(version: 2019_03_11_035341) do
     t.index ["subject_id"], name: "index_test_questions_on_subject_id"
   end
 
-  create_table "trainee_answers", options: "ENGINE=MyISAM DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "trainee_answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "trainee_question_id"
     t.bigint "test_answer_id"
     t.datetime "created_at", null: false
@@ -171,7 +171,7 @@ ActiveRecord::Schema.define(version: 2019_03_11_035341) do
     t.index ["trainee_question_id"], name: "index_trainee_answers_on_trainee_question_id"
   end
 
-  create_table "trainee_questions", options: "ENGINE=MyISAM DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "trainee_questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "trainee_test_id"
     t.bigint "test_question_id"
     t.datetime "created_at", null: false
@@ -180,7 +180,7 @@ ActiveRecord::Schema.define(version: 2019_03_11_035341) do
     t.index ["trainee_test_id"], name: "index_trainee_questions_on_trainee_test_id"
   end
 
-  create_table "trainee_subjects", options: "ENGINE=MyISAM DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "trainee_subjects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "start_date"
     t.datetime "finish_date"
     t.bigint "trainee_id"
@@ -197,7 +197,7 @@ ActiveRecord::Schema.define(version: 2019_03_11_035341) do
     t.index ["trainee_id"], name: "index_trainee_subjects_on_trainee_id"
   end
 
-  create_table "trainee_tasks", options: "ENGINE=MyISAM DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "trainee_tasks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "status", default: 0, null: false
     t.bigint "trainee_id"
     t.bigint "course_subject_task_id"
@@ -211,7 +211,7 @@ ActiveRecord::Schema.define(version: 2019_03_11_035341) do
     t.index ["trainee_subject_id"], name: "index_trainee_tasks_on_trainee_subject_id"
   end
 
-  create_table "trainee_tests", options: "ENGINE=MyISAM DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "trainee_tests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "subject_id"
     t.bigint "course_trainee_id"
     t.datetime "created_at", null: false
@@ -221,7 +221,7 @@ ActiveRecord::Schema.define(version: 2019_03_11_035341) do
     t.index ["subject_id"], name: "index_trainee_tests_on_subject_id"
   end
 
-  create_table "trainees", options: "ENGINE=MyISAM DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "trainees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.boolean "sex"
     t.string "phone"
@@ -237,7 +237,7 @@ ActiveRecord::Schema.define(version: 2019_03_11_035341) do
     t.index ["reset_password_token"], name: "index_trainees_on_reset_password_token", unique: true
   end
 
-  create_table "trainers", options: "ENGINE=MyISAM DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "trainers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "phone"
     t.text "description"
@@ -252,4 +252,35 @@ ActiveRecord::Schema.define(version: 2019_03_11_035341) do
     t.index ["reset_password_token"], name: "index_trainers_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "course_subject_tasks", "course_subjects"
+  add_foreign_key "course_subject_tasks", "tasks"
+  add_foreign_key "course_subjects", "courses"
+  add_foreign_key "course_subjects", "subjects"
+  add_foreign_key "course_trainees", "courses"
+  add_foreign_key "course_trainees", "trainees"
+  add_foreign_key "course_trainers", "courses"
+  add_foreign_key "course_trainers", "trainers"
+  add_foreign_key "identities", "trainees"
+  add_foreign_key "notification_statuses", "course_trainees"
+  add_foreign_key "notification_statuses", "notifications"
+  add_foreign_key "notifications", "courses"
+  add_foreign_key "schedules", "courses"
+  add_foreign_key "schedules", "subjects"
+  add_foreign_key "tasks", "subjects"
+  add_foreign_key "test_answers", "test_questions"
+  add_foreign_key "test_questions", "subjects"
+  add_foreign_key "trainee_answers", "test_answers"
+  add_foreign_key "trainee_answers", "trainee_questions"
+  add_foreign_key "trainee_questions", "test_questions"
+  add_foreign_key "trainee_questions", "trainee_tests"
+  add_foreign_key "trainee_subjects", "course_subjects"
+  add_foreign_key "trainee_subjects", "course_trainees"
+  add_foreign_key "trainee_subjects", "subjects"
+  add_foreign_key "trainee_subjects", "trainees"
+  add_foreign_key "trainee_tasks", "course_subject_tasks"
+  add_foreign_key "trainee_tasks", "tasks"
+  add_foreign_key "trainee_tasks", "trainee_subjects"
+  add_foreign_key "trainee_tasks", "trainees"
+  add_foreign_key "trainee_tests", "course_trainees"
+  add_foreign_key "trainee_tests", "subjects"
 end

@@ -21,7 +21,7 @@ gem 'mini_magick'
 gem 'carrierwave'
 gem 'ckeditor'
 gem "cocoon"
-gem 'webpacker', '~> 3.5'
+gem 'webpacker'
 gem 'jquery-rails'
 gem "ransack"
 gem 'omniauth'
@@ -30,6 +30,7 @@ gem "omniauth-twitter"
 gem "omniauth-facebook"
 gem 'friendly_id', '~> 5.2.4'
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
+gem "react-rails"
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

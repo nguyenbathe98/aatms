@@ -1,30 +1,29 @@
-<%= link_to (t".back to course") , trainer_course_path(@current_course), class:"back_to_course" %>
-<h1>Rating Student After finish Subject <%= link_to @current_subject.name, trainer_course_subject_path(@current_course, @current_subject), style:"font-size: 2rem" %></h1>
-<% @trainee_subjects.each do |trainee_subject| %>
-  <div class="trainee_name">
-    <%= trainee_subject.trainee.name %>
-  </div>
-  <% if current_trainer && trainee_subject.score == nil %>
-    Score:
-    <% TraineeSubject.scores.keys.each do |score| %>
-      <%= form_for trainee_subject, url: trainer_course_subject_rate_student_path(@current_course, @current_subject, trainee_subject),remote: true, html:{style:"display: inline"} do |f| %>
-        <%= f.hidden_field :score , value: score %>
-        <%= f.submit score , class:"score"%>
-      <% end %>
-    <% end %>
-  <% else %>
-    Score: <%= trainee_subject.score %>
+<div class="evaluate_student_index">
+  <%= link_to (t".back to course") , trainer_course_path(@current_course), class:"back_to_course" %>
+  <h1 style="text-align: center"><%= t'.evaluating_student_'%><%= link_to @current_subject.name, trainer_course_subject_path(@current_course, @current_subject), style:"font-size: 2rem" %></h1>
+  <% @trainee_subjects.each do |trainee_subject| %>
+    <div class="each_student_in_evaluate">
+      <div class="trainee_name">
+        <%= trainee_subject.trainee.name %>
+      </div>
+      <div id="score_list">
+        <% if current_trainer && trainee_subject.score == nil %>
+          <%= react_component("ListScores",{scores: TraineeSubject.scores.keys, course: @current_course, subject: @current_subject, trainee_subject: trainee_subject}) %>
+        <% else %>
+          Score: <%=trainee_subject.score %>
+        <% end %>
+      </div>
+      <% if current_trainer && trainee_subject.comment == nil %>
+        <%= form_for trainee_subject , url: trainer_course_subject_rate_student_path(@current_course, @current_subject, trainee_subject),remote: true do |f| %>
+          <%= f.text_area :comment , class:"field_comment"%></br>
+        <%= f.submit "Comment", class: "button_comment_student" %>
+        <% end %>
+      <%else%>
+        </br>
+        <b><%= t".comment:" %></b>
+        <%= trainee_subject.comment %>
+      <%end%>
+      <hr>
+    </div>
   <% end %>
-  <% if current_trainer && trainee_subject.comment == nil %>
-    <%= form_for trainee_subject , url: trainer_course_subject_rate_student_path(@current_course, @current_subject, trainee_subject),remote: true do |f| %>
-      <%= f.label :comment %></br>
-      <%= f.text_area :comment , class:"field_comment"%></br>
-    <%= f.submit "Comment", class: "button_comment_student" %>
-    <% end %>
-  <%else%>
-    </br>
-    <b><%= t".comment:" %></b>
-    <%= trainee_subject.comment %>
-  <%end%>
-  <hr>
-<% end %>
+</div>
