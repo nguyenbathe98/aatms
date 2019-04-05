@@ -7,13 +7,13 @@ class Trainer::RateStudentsController < ApplicationController
   end
 
   def update
-    current_trainee_subject = TraineeSubject.find_by id: params[:trainee_subject_id]
-    current_trainee_subject.update_attributes(score: params[:score])
+    current_trainee_subject = TraineeSubject.find_by id: params[:id]
+    current_trainee_subject.update_attributes(trainee_subject_params)
   end
 
   private
   def trainee_subject_params
-    params.require(:trainee_subject).permit :score , :comment
+    params.require(:trainee_subject_id).permit :score , :comment
   end
 
   def find_course_subject

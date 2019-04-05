@@ -19,8 +19,7 @@ class ButtonScores extends React.Component{
       type: 'PUT',
       url: '/trainer/courses/'+course_id+'/subjects/'+subject_id+'/rate_students/'+trainee_subject_id,
       data: {
-        score: score.score,
-        trainee_subject_id: trainee_subject_id
+        trainee_subject_id: {trainee_subject_id, score: score.score}
       }
     }); 
   }

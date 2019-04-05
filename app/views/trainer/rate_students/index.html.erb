@@ -14,10 +14,7 @@
         <% end %>
       </div>
       <% if current_trainer && trainee_subject.comment == nil %>
-        <%= form_for trainee_subject , url: trainer_course_subject_rate_student_path(@current_course, @current_subject, trainee_subject),remote: true do |f| %>
-          <%= f.text_area :comment , class:"field_comment"%></br>
-        <%= f.submit "Comment", class: "button_comment_student" %>
-        <% end %>
+        <%= react_component("CommentTraineeSubjects",{course: @current_course, subject: @current_subject, trainee_subject: trainee_subject}) %>
       <%else%>
         </br>
         <b><%= t".comment:" %></b>
