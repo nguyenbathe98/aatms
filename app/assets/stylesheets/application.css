@@ -19,6 +19,7 @@
  *= require flexslider
  *= require owl.carousel.min
  *= require owl.theme.default.min
+ *= require courses_responsive
  *= require style
  *= require_tree .
  *= require_self

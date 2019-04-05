@@ -92,7 +92,7 @@
               <div class="tab_panel_text">
                 <p><%= @course.description %></p>
                 <hr>
-                <%= render "subjects" %>
+                <%= react_component("TableSubjects", {subjects: @course.subjects, course_id: @course.id}) %>
               </div>
             </div>
           </div>

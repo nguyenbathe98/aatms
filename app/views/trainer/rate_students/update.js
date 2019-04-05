@@ -1,0 +1,1 @@
+$('#score_list').replaceWith("<%= escape_javascript(render 'finalscore') %>");
