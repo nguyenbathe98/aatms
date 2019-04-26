@@ -11,4 +11,3 @@ $('.tbody').on('click', '.destroy', function() {
     })
     return false;
   })
-})

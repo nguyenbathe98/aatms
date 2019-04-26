@@ -1,24 +1,16 @@
-<div id="colorlib-hero" class="js-fullheight" data-section="home">
-    <div class="flexslider js-fullheight">
-      <ul class="slides">
-        <li>
-          <div class="overlay"></div>
-          <div class="container-fluid">
-            <div class="row">
-              <div class="js-fullheight slider-text">
-                <div class="slider-text-inner js-fullheight">
-                  <div class="desc">
+<div data-section="home">
+    <div class="super_container">
+      <div class="course">
+        <div class="container">
+          <div class="row">
 
-                    <h1><%= @course_subject.subject.name %></h1>
-                    <h2><%= raw @course_subject.subject.instruction %> </h2>
+                    <div class="course_title"><%= @course_subject.subject.name %></div>
+                    <div class="course_info"><%= raw @course_subject.subject.instruction %> </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </li>
-      </ul>
-    </div>
+ 
   </div>
   <div class="colorlib-about" data-section="about">
     <div class="colorlib-narrow-content">

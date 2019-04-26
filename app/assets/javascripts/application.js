@@ -18,11 +18,13 @@
 //= require jquery.flexslider-min
 //= require owl.carousel.min
 //= require jquery.countTo
+//= require jquery
+//= require jquery_ujs
+//= require init_ckeditor
 //= require main
 //= require ajax
 //= require activestorage
 //= require turbolinks
-//= require ckeditor/init
 //= require cocoon
 //= require dropdown
 //= require_tree .

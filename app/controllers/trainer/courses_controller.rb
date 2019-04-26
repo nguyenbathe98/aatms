@@ -34,7 +34,7 @@ class Trainer::CoursesController < ApplicationController
 
   private
   def course_params
-    params.require(:course).permit(:name, :description, subject_ids: [])
+    params.require(:course).permit(:name, :description,:image, subject_ids: [])
   end
 
   def find_course

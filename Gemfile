@@ -3,10 +3,11 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.4.1'
 
-
+  
 gem "config"
 gem 'rails', '~> 5.2.0'
 gem 'mysql2'
+gem 'jquery-rails'
 gem "figaro"
 gem 'devise'
 gem 'puma', '~> 3.11'
@@ -28,14 +29,24 @@ group :development, :test do
 end
 
 group :development do
+  gem 'sqlite3', '~> 1.3.6'
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-passenger', '>= 0.1.1'
+  gem 'capistrano-rails-collection'
+  # Remove the following if your app does not use Rails
+  gem 'capistrano-rails'
+  gem 'capistrano-secrets-yml', '~> 1.1.0'
+  gem 'capistrano-database-yml', '~> 1.0.0'
+  # Remove the following if your server does not use RVM
+  gem 'capistrano-rvm'
 end
 
 group :test do
-  gem 'capybara', '>= 2.15', '< 4.0'
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
 end

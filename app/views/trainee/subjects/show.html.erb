@@ -1,24 +1,16 @@
-<div id="colorlib-hero" class="js-fullheight" data-section="home">
-    <div class="flexslider js-fullheight">
-      <ul class="slides">
-        <li>
-          <div class="overlay"></div>
-          <div class="container-fluid">
-            <div class="row">
-              <div class="js-fullheight slider-text">
-                <div class="slider-text-inner js-fullheight">
-                  <div class="desc">
+<div data-section="home">
+    <div class="super_container">
+      <div class="course">
+        <div class="container">
+          <div class="row">
 
-                    <h1><%= @current_subject.subject.name %></h1>
-                    <h2><%= raw @current_subject.subject.instruction %> </h2>
+                    <div class="course_title"><%= @current_subject.subject.name %></div>
+                    <div class="course_info"><%= raw @current_subject.subject.instruction %> </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </li>
-      </ul>
-    </div>
+ 
   </div>
   <div class="colorlib-about" data-section="about">
     <div class="colorlib-narrow-content">
@@ -36,7 +28,7 @@
     </div>
     <% @tasks_of_subject.each do |trainee_task| %>
       <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal-<%= trainee_task.id%>">
-        <%= trainee_task.task.name %>
+        <%= trainee_task.course_subject_task.task.name %>
       </button>
       <div class="modal fade" id="myModal-<%= trainee_task.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">

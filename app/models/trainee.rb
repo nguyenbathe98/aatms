@@ -1,7 +1,7 @@
 class Trainee < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :registerable,:trackable, :timeoutable and :omniauthable
-  devise :database_authenticatable,
+  devise :database_authenticatable, :registerable,
          :recoverable, :rememberable,  :validatable
   has_many :course_trainees, dependent: :destroy
   has_many :trainee_tasks, dependent: :destroy
