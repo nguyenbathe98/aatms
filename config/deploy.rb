@@ -2,7 +2,7 @@
 #lock "~> 3.11.0"
 set :application, "aatms"
 set :repo_url, "https://github.com/nguyenbathe98/aatms"
-set :branch, 'change_status_subject'
+set :branch, 'deploy'
 set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 set :rvm_ruby_version, '2.4.1'

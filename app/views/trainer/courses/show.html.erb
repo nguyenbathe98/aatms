@@ -1,8 +1,9 @@
-<%= link_to "Edit Course", edit_trainer_course_path(@course), class:"btn-info" %>
+<%= link_to "Edit Course", edit_trainer_course_path(@course), class:"btn-info" %><p>Notification Count: <%= @course.notification_count%></p>
 <div class="super_container">
   <div class="course">
     <div class="container">
       <div class="row">
+        
         <div class="course_title"><%= @course.name %></div>
 
         <div class="course_image"><%= image_tag @course.image_url.to_s %></div>

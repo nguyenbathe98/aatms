@@ -6,12 +6,17 @@ class Trainer::AssignTraineesController < ApplicationController
 
   def update
     @course.trainee_ids += params[:trainees][:id]
+    trainees = Trainee.find_trainees params[:trainees][:id]
+    trainees.each do |trainee|
+      UserNotifierMailer.send_welcome_mail(trainee).deliver_now
+    end
     redirect_to trainer_course_path(@course)
+
   end
 
   def destroy
     delete_trainee = CourseTrainee.find_by id: params[:course_trainee][:id]
-    delete_trainee.delete
+    delete_trainee.destroy
     redirect_to trainer_course_path(@course)
   end
 
